@@ -1,81 +1,46 @@
 {
-  "date": "2026-09-25",
-  "id": "1096",
-  "title": "Brace Expansion II",
-  "difficulty": "Hard",
-  "link": "https://leetcode.com/problems/brace-expansion-ii/",
+  "date": "2026-09-26",
+  "id": "1807",
+  "title": "Evaluate the Bracket Pairs of a String",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/evaluate-the-bracket-pairs-of-a-string/",
   "topics": [
+    "Array",
     "Hash Table",
-    "String",
-    "Backtracking",
-    "Stack",
-    "Breadth-First Search",
-    "Sorting"
+    "String"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Under the grammar given below, strings can represent a set of lowercase words. Let R(expr) denote the set of words the expression represents."
+      "v": "You are given a string s that contains some bracket pairs, with each pair containing a non-empty key."
     },
     {
       "t": "text",
-      "v": "The grammar can best be understood through simple examples:"
+      "v": "• For example, in the string \"(name)is(age)yearsold\", there are two bracket pairs that contain the keys \"name\" and \"age\"."
     },
     {
       "t": "text",
-      "v": "• Single letters represent a singleton set containing that word."
+      "v": "You know the values of a wide range of keys. This is represented by a 2D string array knowledge where each knowledge[i] = [keyi, valuei] indicates that key keyi has a value of valuei."
     },
     {
       "t": "text",
-      "v": "• R(\"a\") = {\"a\"}"
+      "v": "You are tasked to evaluate all of the bracket pairs. When you evaluate a bracket pair that contains some key keyi, you will:"
     },
     {
       "t": "text",
-      "v": "• R(\"w\") = {\"w\"}"
+      "v": "• Replace keyi and the bracket pair with the key's corresponding valuei."
     },
     {
       "t": "text",
-      "v": "• When we take a comma-delimited list of two or more expressions, we take the union of possibilities."
+      "v": "• If you do not know the value of the key, you will replace keyi and the bracket pair with a question mark \"?\" (without the quotation marks)."
     },
     {
       "t": "text",
-      "v": "• R(\"{a,b,c}\") = {\"a\",\"b\",\"c\"}"
+      "v": "Each key will appear at most once in your knowledge. There will not be any nested brackets in s."
     },
     {
       "t": "text",
-      "v": "• R(\"{{a,b},{b,c}}\") = {\"a\",\"b\",\"c\"} (notice the final set only contains each word at most once)"
-    },
-    {
-      "t": "text",
-      "v": "• When we concatenate two expressions, we take the set of possible concatenations between two words where the first word comes from the first expression and the second word comes from the second expression."
-    },
-    {
-      "t": "text",
-      "v": "• R(\"{a,b}{c,d}\") = {\"ac\",\"ad\",\"bc\",\"bd\"}"
-    },
-    {
-      "t": "text",
-      "v": "• R(\"a{b,c}{d,e}f{g,h}\") = {\"abdfg\", \"abdfh\", \"abefg\", \"abefh\", \"acdfg\", \"acdfh\", \"acefg\", \"acefh\"}"
-    },
-    {
-      "t": "text",
-      "v": "Formally, the three rules for our grammar:"
-    },
-    {
-      "t": "text",
-      "v": "• For every lowercase letter x, we have R(x) = {x}."
-    },
-    {
-      "t": "text",
-      "v": "• For expressions e1, e2, ... , ek with k >= 2, we have R({e1, e2, ...}) = R(e1) ∪ R(e2) ∪ ..."
-    },
-    {
-      "t": "text",
-      "v": "• For expressions e1 and e2, we have R(e1 + e2) = {a + b for (a, b) in R(e1) × R(e2)}, where + denotes concatenation, and × denotes the cartesian product."
-    },
-    {
-      "t": "text",
-      "v": "Given an expression representing a set of words under the given grammar, return the sorted list of words that the expression represents."
+      "v": "Return the resulting string after evaluating all of the bracket pairs."
     },
     {
       "t": "text",
@@ -83,7 +48,7 @@
     },
     {
       "t": "code",
-      "v": "Input: expression = \"{a,b}{c,{d,e}}\"\nOutput: [\"ac\",\"ad\",\"ae\",\"bc\",\"bd\",\"be\"]"
+      "v": "Input: s = \"(name)is(age)yearsold\", knowledge = [[\"name\",\"bob\"],[\"age\",\"two\"]]\nOutput: \"bobistwoyearsold\"\nExplanation:\nThe key \"name\" has a value of \"bob\", so replace \"(name)\" with \"bob\".\nThe key \"age\" has a value of \"two\", so replace \"(age)\" with \"two\"."
     },
     {
       "t": "text",
@@ -91,7 +56,15 @@
     },
     {
       "t": "code",
-      "v": "Input: expression = \"{{a,z},a{b,c},{ab,z}}\"\nOutput: [\"a\",\"ab\",\"ac\",\"z\"]\nExplanation: Each distinct word is written only once in the final answer."
+      "v": "Input: s = \"hi(name)\", knowledge = [[\"a\",\"b\"]]\nOutput: \"hi?\"\nExplanation: As you do not know the value of the key \"name\", replace \"(name)\" with \"?\"."
+    },
+    {
+      "t": "text",
+      "v": "Example 3:"
+    },
+    {
+      "t": "code",
+      "v": "Input: s = \"(a)(a)(a)aaa\", knowledge = [[\"a\",\"yes\"]]\nOutput: \"yesyesyesaaa\"\nExplanation: The same key can appear multiple times.\nThe key \"a\" has a value of \"yes\", so replace all occurrences of \"(a)\" with \"yes\".\nNotice that the \"a\"s not in a bracket pair are not evaluated."
     },
     {
       "t": "text",
@@ -99,15 +72,43 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= expression.length <= 60"
+      "v": "• 1 <= s.length <= 10^5"
     },
     {
       "t": "text",
-      "v": "• expression[i] consists of '{', '}', ','or lowercase English letters."
+      "v": "• 0 <= knowledge.length <= 10^5"
     },
     {
       "t": "text",
-      "v": "• The given expression represents a set of words based on the grammar given in the description."
+      "v": "• knowledge[i].length == 2"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= keyi.length, valuei.length <= 10"
+    },
+    {
+      "t": "text",
+      "v": "• s consists of lowercase English letters and round brackets '(' and ')'."
+    },
+    {
+      "t": "text",
+      "v": "• Every open bracket '(' in s will have a corresponding close bracket ')'."
+    },
+    {
+      "t": "text",
+      "v": "• The key in each bracket pair of s will be non-empty."
+    },
+    {
+      "t": "text",
+      "v": "• There will not be any nested bracket pairs in s."
+    },
+    {
+      "t": "text",
+      "v": "• keyi and valuei consist of lowercase English letters."
+    },
+    {
+      "t": "text",
+      "v": "• Each keyi in knowledge is unique."
     }
   ]
 }
