@@ -1,46 +1,26 @@
 {
-  "date": "2026-09-26",
-  "id": "1807",
-  "title": "Evaluate the Bracket Pairs of a String",
+  "date": "2026-09-27",
+  "id": "1190",
+  "title": "Reverse Substrings Between Each Pair of Parentheses",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/evaluate-the-bracket-pairs-of-a-string/",
+  "link": "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/",
   "topics": [
-    "Array",
-    "Hash Table",
-    "String"
+    "String",
+    "Stack",
+    "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given a string s that contains some bracket pairs, with each pair containing a non-empty key."
+      "v": "You are given a string s that consists of lower case English letters and brackets."
     },
     {
       "t": "text",
-      "v": "• For example, in the string \"(name)is(age)yearsold\", there are two bracket pairs that contain the keys \"name\" and \"age\"."
+      "v": "Reverse the strings in each pair of matching parentheses, starting from the innermost one."
     },
     {
       "t": "text",
-      "v": "You know the values of a wide range of keys. This is represented by a 2D string array knowledge where each knowledge[i] = [keyi, valuei] indicates that key keyi has a value of valuei."
-    },
-    {
-      "t": "text",
-      "v": "You are tasked to evaluate all of the bracket pairs. When you evaluate a bracket pair that contains some key keyi, you will:"
-    },
-    {
-      "t": "text",
-      "v": "• Replace keyi and the bracket pair with the key's corresponding valuei."
-    },
-    {
-      "t": "text",
-      "v": "• If you do not know the value of the key, you will replace keyi and the bracket pair with a question mark \"?\" (without the quotation marks)."
-    },
-    {
-      "t": "text",
-      "v": "Each key will appear at most once in your knowledge. There will not be any nested brackets in s."
-    },
-    {
-      "t": "text",
-      "v": "Return the resulting string after evaluating all of the bracket pairs."
+      "v": "Your result should not contain any brackets."
     },
     {
       "t": "text",
@@ -48,7 +28,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(name)is(age)yearsold\", knowledge = [[\"name\",\"bob\"],[\"age\",\"two\"]]\nOutput: \"bobistwoyearsold\"\nExplanation:\nThe key \"name\" has a value of \"bob\", so replace \"(name)\" with \"bob\".\nThe key \"age\" has a value of \"two\", so replace \"(age)\" with \"two\"."
+      "v": "Input: s = \"(abcd)\"\nOutput: \"dcba\""
     },
     {
       "t": "text",
@@ -56,7 +36,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"hi(name)\", knowledge = [[\"a\",\"b\"]]\nOutput: \"hi?\"\nExplanation: As you do not know the value of the key \"name\", replace \"(name)\" with \"?\"."
+      "v": "Input: s = \"(u(love)i)\"\nOutput: \"iloveu\"\nExplanation: The substring \"love\" is reversed first, then the whole string is reversed."
     },
     {
       "t": "text",
@@ -64,7 +44,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(a)(a)(a)aaa\", knowledge = [[\"a\",\"yes\"]]\nOutput: \"yesyesyesaaa\"\nExplanation: The same key can appear multiple times.\nThe key \"a\" has a value of \"yes\", so replace all occurrences of \"(a)\" with \"yes\".\nNotice that the \"a\"s not in a bracket pair are not evaluated."
+      "v": "Input: s = \"(ed(et(oc))el)\"\nOutput: \"leetcode\"\nExplanation: First, we reverse the substring \"oc\", then \"etco\", and finally, the whole string."
     },
     {
       "t": "text",
@@ -72,43 +52,15 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= s.length <= 10^5"
+      "v": "• 1 <= s.length <= 2000"
     },
     {
       "t": "text",
-      "v": "• 0 <= knowledge.length <= 10^5"
+      "v": "• s only contains lower case English characters and parentheses."
     },
     {
       "t": "text",
-      "v": "• knowledge[i].length == 2"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= keyi.length, valuei.length <= 10"
-    },
-    {
-      "t": "text",
-      "v": "• s consists of lowercase English letters and round brackets '(' and ')'."
-    },
-    {
-      "t": "text",
-      "v": "• Every open bracket '(' in s will have a corresponding close bracket ')'."
-    },
-    {
-      "t": "text",
-      "v": "• The key in each bracket pair of s will be non-empty."
-    },
-    {
-      "t": "text",
-      "v": "• There will not be any nested bracket pairs in s."
-    },
-    {
-      "t": "text",
-      "v": "• keyi and valuei consist of lowercase English letters."
-    },
-    {
-      "t": "text",
-      "v": "• Each keyi in knowledge is unique."
+      "v": "• It is guaranteed that all parentheses are balanced."
     }
   ]
 }
