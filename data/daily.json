@@ -1,9 +1,9 @@
 {
-  "date": "2026-09-27",
-  "id": "1190",
-  "title": "Reverse Substrings Between Each Pair of Parentheses",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/",
+  "date": "2026-09-28",
+  "id": "1614",
+  "title": "Maximum Nesting Depth of the Parentheses",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/",
   "topics": [
     "String",
     "Stack",
@@ -12,39 +12,59 @@
   "blocks": [
     {
       "t": "text",
-      "v": "You are given a string s that consists of lower case English letters and brackets."
-    },
-    {
-      "t": "text",
-      "v": "Reverse the strings in each pair of matching parentheses, starting from the innermost one."
-    },
-    {
-      "t": "text",
-      "v": "Your result should not contain any brackets."
+      "v": "Given a valid parentheses string s, return the nesting depth of s. The nesting depth is the maximum number of nested parentheses."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "code",
-      "v": "Input: s = \"(abcd)\"\nOutput: \"dcba\""
+      "t": "text",
+      "v": "Input: s = \"(1+(2*3)+((8)/4))+1\""
+    },
+    {
+      "t": "text",
+      "v": "Output: 3"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "Digit 8 is inside of 3 nested parentheses in the string."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "code",
-      "v": "Input: s = \"(u(love)i)\"\nOutput: \"iloveu\"\nExplanation: The substring \"love\" is reversed first, then the whole string is reversed."
+      "t": "text",
+      "v": "Input: s = \"(1)+((2))+(((3)))\""
+    },
+    {
+      "t": "text",
+      "v": "Output: 3"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "Digit 3 is inside of 3 nested parentheses in the string."
     },
     {
       "t": "text",
       "v": "Example 3:"
     },
     {
-      "t": "code",
-      "v": "Input: s = \"(ed(et(oc))el)\"\nOutput: \"leetcode\"\nExplanation: First, we reverse the substring \"oc\", then \"etco\", and finally, the whole string."
+      "t": "text",
+      "v": "Input: s = \"()(())((()()))\""
+    },
+    {
+      "t": "text",
+      "v": "Output: 3"
     },
     {
       "t": "text",
@@ -52,15 +72,15 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= s.length <= 2000"
+      "v": "• 1 <= s.length <= 100"
     },
     {
       "t": "text",
-      "v": "• s only contains lower case English characters and parentheses."
+      "v": "• s consists of digits 0-9 and characters '+', '-', '*', '/', '(', and ')'."
     },
     {
       "t": "text",
-      "v": "• It is guaranteed that all parentheses are balanced."
+      "v": "• It is guaranteed that parentheses expression s is a VPS."
     }
   ]
 }
