@@ -1,70 +1,71 @@
 {
-  "date": "2026-09-28",
-  "id": "1614",
-  "title": "Maximum Nesting Depth of the Parentheses",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/",
+  "date": "2026-09-29",
+  "id": "2267",
+  "title": " Check if There Is a Valid Parentheses String Path",
+  "difficulty": "Hard",
+  "link": "https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/",
   "topics": [
-    "String",
-    "Stack",
+    "Array",
+    "Dynamic Programming",
+    "Matrix",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given a valid parentheses string s, return the nesting depth of s. The nesting depth is the maximum number of nested parentheses."
+      "v": "A parentheses string is a non-empty string consisting only of '(' and ')'. It is valid if any of the following conditions is true:"
+    },
+    {
+      "t": "text",
+      "v": "• It is ()."
+    },
+    {
+      "t": "text",
+      "v": "• It can be written as AB (A concatenated with B), where A and B are valid parentheses strings."
+    },
+    {
+      "t": "text",
+      "v": "• It can be written as (A), where A is a valid parentheses string."
+    },
+    {
+      "t": "text",
+      "v": "You are given an m x n matrix of parentheses grid. A valid parentheses string path in the grid is a path satisfying all of the following conditions:"
+    },
+    {
+      "t": "text",
+      "v": "• The path starts from the upper left cell (0, 0)."
+    },
+    {
+      "t": "text",
+      "v": "• The path ends at the bottom-right cell (m - 1, n - 1)."
+    },
+    {
+      "t": "text",
+      "v": "• The path only ever moves down or right."
+    },
+    {
+      "t": "text",
+      "v": "• The resulting parentheses string formed by the path is valid."
+    },
+    {
+      "t": "text",
+      "v": "Return true if there exists a valid parentheses string path in the grid. Otherwise, return false."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "text",
-      "v": "Input: s = \"(1+(2*3)+((8)/4))+1\""
-    },
-    {
-      "t": "text",
-      "v": "Output: 3"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "Digit 8 is inside of 3 nested parentheses in the string."
+      "t": "code",
+      "v": "Input: grid = [[\"(\",\"(\",\"(\"],[\")\",\"(\",\")\"],[\"(\",\"(\",\")\"],[\"(\",\"(\",\")\"]]\nOutput: true\nExplanation: The above diagram shows two possible paths that form valid parentheses strings.\nThe first path shown results in the valid parentheses string \"()(())\".\nThe second path shown results in the valid parentheses string \"((()))\".\nNote that there may be other valid parentheses string paths."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "text",
-      "v": "Input: s = \"(1)+((2))+(((3)))\""
-    },
-    {
-      "t": "text",
-      "v": "Output: 3"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "Digit 3 is inside of 3 nested parentheses in the string."
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "text",
-      "v": "Input: s = \"()(())((()()))\""
-    },
-    {
-      "t": "text",
-      "v": "Output: 3"
+      "t": "code",
+      "v": "Input: grid = [[\")\",\")\"],[\"(\",\"(\"]]\nOutput: false\nExplanation: The two possible paths form the parentheses strings \"))(\" and \")((\". Since neither of them are valid parentheses strings, we return false."
     },
     {
       "t": "text",
@@ -72,15 +73,19 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= s.length <= 100"
+      "v": "• m == grid.length"
     },
     {
       "t": "text",
-      "v": "• s consists of digits 0-9 and characters '+', '-', '*', '/', '(', and ')'."
+      "v": "• n == grid[i].length"
     },
     {
       "t": "text",
-      "v": "• It is guaranteed that parentheses expression s is a VPS."
+      "v": "• 1 <= m, n <= 100"
+    },
+    {
+      "t": "text",
+      "v": "• grid[i][j] is either '(' or ')'."
     }
   ]
 }
