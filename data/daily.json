@@ -1,55 +1,86 @@
 {
-  "date": "2026-09-29",
-  "id": "2267",
-  "title": " Check if There Is a Valid Parentheses String Path",
-  "difficulty": "Hard",
-  "link": "https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/",
+  "date": "2026-09-30",
+  "id": "1111",
+  "title": "Maximum Nesting Depth of Two Valid Parentheses Strings",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/",
   "topics": [
-    "Array",
-    "Dynamic Programming",
-    "Matrix",
+    "String",
+    "Stack",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "A parentheses string is a non-empty string consisting only of '(' and ')'. It is valid if any of the following conditions is true:"
+      "v": "A string is a valid parentheses string (denoted VPS) if and only if it consists of \"(\" and \")\" characters only, and:"
     },
     {
       "t": "text",
-      "v": "• It is ()."
+      "v": "• It is the empty string, or"
     },
     {
       "t": "text",
-      "v": "• It can be written as AB (A concatenated with B), where A and B are valid parentheses strings."
+      "v": "• It can be written as AB (A concatenated with B), where A and B are VPS's, or"
     },
     {
       "t": "text",
-      "v": "• It can be written as (A), where A is a valid parentheses string."
+      "v": "• It can be written as (A), where A is a VPS."
     },
     {
       "t": "text",
-      "v": "You are given an m x n matrix of parentheses grid. A valid parentheses string path in the grid is a path satisfying all of the following conditions:"
+      "v": "We can similarly define the nesting depth depth(S) of any VPS S as follows:"
     },
     {
       "t": "text",
-      "v": "• The path starts from the upper left cell (0, 0)."
+      "v": "• depth(\"\") = 0"
     },
     {
       "t": "text",
-      "v": "• The path ends at the bottom-right cell (m - 1, n - 1)."
+      "v": "• depth(A + B) = max(depth(A), depth(B)), where A and B are VPS's"
     },
     {
       "t": "text",
-      "v": "• The path only ever moves down or right."
+      "v": "• depth(\"(\" + A + \")\") = 1 + depth(A), where A is a VPS."
     },
     {
       "t": "text",
-      "v": "• The resulting parentheses string formed by the path is valid."
+      "v": "For example, \"\", \"()()\", and \"()(()())\" are VPS's (with nesting depths 0, 1, and 2), and \")(\" and \"(()\" are not VPS's."
     },
     {
       "t": "text",
-      "v": "Return true if there exists a valid parentheses string path in the grid. Otherwise, return false."
+      "v": "Given a VPS seq, split it into two disjoint subsequences A and B, such that A and B are VPS's (and A.length + B.length = seq.length). The subsequences may not necessarily be contiguous."
+    },
+    {
+      "t": "text",
+      "v": "For example, for the sequence 123456789, one possible split is:"
+    },
+    {
+      "t": "text",
+      "v": "•"
+    },
+    {
+      "t": "text",
+      "v": "A = {1, 3, 5, 7, 9},"
+    },
+    {
+      "t": "text",
+      "v": "•"
+    },
+    {
+      "t": "text",
+      "v": "B = {2, 4, 6, 8}."
+    },
+    {
+      "t": "text",
+      "v": "This corresponds to the output [0, 1, 0, 1, 0, 1, 0, 1, 0] where 0 indicates membership in A and 1 indicates membership in B."
+    },
+    {
+      "t": "text",
+      "v": "Now choose any such A and B such that max(depth(A), depth(B)) is the minimum possible value."
+    },
+    {
+      "t": "text",
+      "v": "Return an answer array (of length seq.length) that encodes such a choice of A and B: answer[i] = 0 if seq[i] is part of A, else answer[i] = 1. Note that even though multiple answers may exist, you may return any of them."
     },
     {
       "t": "text",
@@ -57,7 +88,7 @@
     },
     {
       "t": "code",
-      "v": "Input: grid = [[\"(\",\"(\",\"(\"],[\")\",\"(\",\")\"],[\"(\",\"(\",\")\"],[\"(\",\"(\",\")\"]]\nOutput: true\nExplanation: The above diagram shows two possible paths that form valid parentheses strings.\nThe first path shown results in the valid parentheses string \"()(())\".\nThe second path shown results in the valid parentheses string \"((()))\".\nNote that there may be other valid parentheses string paths."
+      "v": "Input: seq = \"(()())\"\nOutput: [0,1,1,1,1,0]"
     },
     {
       "t": "text",
@@ -65,7 +96,7 @@
     },
     {
       "t": "code",
-      "v": "Input: grid = [[\")\",\")\"],[\"(\",\"(\"]]\nOutput: false\nExplanation: The two possible paths form the parentheses strings \"))(\" and \")((\". Since neither of them are valid parentheses strings, we return false."
+      "v": "Input: seq = \"()(())()\"\nOutput: [0,0,0,1,1,0,1,1]"
     },
     {
       "t": "text",
@@ -73,19 +104,7 @@
     },
     {
       "t": "text",
-      "v": "• m == grid.length"
-    },
-    {
-      "t": "text",
-      "v": "• n == grid[i].length"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= m, n <= 100"
-    },
-    {
-      "t": "text",
-      "v": "• grid[i][j] is either '(' or ')'."
+      "v": "• 1 <= seq.size <= 10000"
     }
   ]
 }
