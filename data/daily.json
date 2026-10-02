@@ -1,94 +1,35 @@
 {
-  "date": "2026-10-01",
-  "id": "20",
-  "title": "Valid Parentheses",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/valid-parentheses/",
+  "date": "2026-10-02",
+  "id": "22",
+  "title": "Generate Parentheses",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/generate-parentheses/",
   "topics": [
     "String",
-    "Stack",
+    "Dynamic Programming",
+    "Backtracking",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid."
-    },
-    {
-      "t": "text",
-      "v": "An input string is valid if:"
-    },
-    {
-      "t": "text",
-      "v": "• Open brackets must be closed by the same type of brackets."
-    },
-    {
-      "t": "text",
-      "v": "• Open brackets must be closed in the correct order."
-    },
-    {
-      "t": "text",
-      "v": "• Every close bracket has a corresponding open bracket of the same type."
+      "v": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "text",
-      "v": "Input: s = \"()\""
-    },
-    {
-      "t": "text",
-      "v": "Output: true"
+      "t": "code",
+      "v": "Input: n = 3\nOutput: [\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]"
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "text",
-      "v": "Input: s = \"()[]{}\""
-    },
-    {
-      "t": "text",
-      "v": "Output: true"
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "text",
-      "v": "Input: s = \"(]\""
-    },
-    {
-      "t": "text",
-      "v": "Output: false"
-    },
-    {
-      "t": "text",
-      "v": "Example 4:"
-    },
-    {
-      "t": "text",
-      "v": "Input: s = \"([])\""
-    },
-    {
-      "t": "text",
-      "v": "Output: true"
-    },
-    {
-      "t": "text",
-      "v": "Example 5:"
-    },
-    {
-      "t": "text",
-      "v": "Input: s = \"([)]\""
-    },
-    {
-      "t": "text",
-      "v": "Output: false"
+      "t": "code",
+      "v": "Input: n = 1\nOutput: [\"()\"]"
     },
     {
       "t": "text",
@@ -96,11 +37,7 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= s.length <= 10^4"
-    },
-    {
-      "t": "text",
-      "v": "• s consists of parentheses only '()[]{}'."
+      "v": "• 1 <= n <= 8"
     }
   ]
 }
