@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-02",
-  "id": "22",
-  "title": "Generate Parentheses",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/generate-parentheses/",
+  "date": "2026-10-03",
+  "id": "32",
+  "title": "Longest Valid Parentheses",
+  "difficulty": "Hard",
+  "link": "https://leetcode.com/problems/longest-valid-parentheses/",
   "topics": [
     "String",
     "Dynamic Programming",
-    "Backtracking",
+    "Stack",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses."
+      "v": "Given a string containing just the characters '(' and ')', return the length of the longest valid (well-formed) parentheses substring."
     },
     {
       "t": "text",
@@ -21,7 +21,7 @@
     },
     {
       "t": "code",
-      "v": "Input: n = 3\nOutput: [\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]"
+      "v": "Input: s = \"(()\"\nOutput: 2\nExplanation: The longest valid parentheses substring is \"()\"."
     },
     {
       "t": "text",
@@ -29,7 +29,15 @@
     },
     {
       "t": "code",
-      "v": "Input: n = 1\nOutput: [\"()\"]"
+      "v": "Input: s = \")()())\"\nOutput: 4\nExplanation: The longest valid parentheses substring is \"()()\"."
+    },
+    {
+      "t": "text",
+      "v": "Example 3:"
+    },
+    {
+      "t": "code",
+      "v": "Input: s = \"\"\nOutput: 0"
     },
     {
       "t": "text",
@@ -37,7 +45,11 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= n <= 8"
+      "v": "• 0 <= s.length <= 3 * 10^4"
+    },
+    {
+      "t": "text",
+      "v": "• s[i] is '(', or ')'."
     }
   ]
 }
