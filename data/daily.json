@@ -1,19 +1,40 @@
 {
-  "date": "2026-10-03",
-  "id": "32",
-  "title": "Longest Valid Parentheses",
-  "difficulty": "Hard",
-  "link": "https://leetcode.com/problems/longest-valid-parentheses/",
+  "date": "2026-10-04",
+  "id": "678",
+  "title": "Valid Parenthesis String",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/valid-parenthesis-string/",
   "topics": [
     "String",
     "Dynamic Programming",
     "Stack",
+    "Greedy",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given a string containing just the characters '(' and ')', return the length of the longest valid (well-formed) parentheses substring."
+      "v": "Given a string s containing only three types of characters: '(', ')' and '*', return true if s is valid."
+    },
+    {
+      "t": "text",
+      "v": "The following rules define a valid string:"
+    },
+    {
+      "t": "text",
+      "v": "• Any left parenthesis '(' must have a corresponding right parenthesis ')'."
+    },
+    {
+      "t": "text",
+      "v": "• Any right parenthesis ')' must have a corresponding left parenthesis '('."
+    },
+    {
+      "t": "text",
+      "v": "• Left parenthesis '(' must go before the corresponding right parenthesis ')'."
+    },
+    {
+      "t": "text",
+      "v": "• '*' could be treated as a single right parenthesis ')' or a single left parenthesis '(' or an empty string \"\"."
     },
     {
       "t": "text",
@@ -21,7 +42,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(()\"\nOutput: 2\nExplanation: The longest valid parentheses substring is \"()\"."
+      "v": "Input: s = \"()\"\nOutput: true"
     },
     {
       "t": "text",
@@ -29,7 +50,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \")()())\"\nOutput: 4\nExplanation: The longest valid parentheses substring is \"()()\"."
+      "v": "Input: s = \"(*)\"\nOutput: true"
     },
     {
       "t": "text",
@@ -37,7 +58,15 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"\"\nOutput: 0"
+      "v": "Input: s = \"(*))\"\nOutput: true"
+    },
+    {
+      "t": "text",
+      "v": "Example 4:"
+    },
+    {
+      "t": "code",
+      "v": "Input: s = \"(\"\nOutput: false"
     },
     {
       "t": "text",
@@ -45,11 +74,11 @@
     },
     {
       "t": "text",
-      "v": "• 0 <= s.length <= 3 * 10^4"
+      "v": "• 1 <= s.length <= 100"
     },
     {
       "t": "text",
-      "v": "• s[i] is '(', or ')'."
+      "v": "• s[i] is '(', ')' or '*'."
     }
   ]
 }
