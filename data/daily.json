@@ -1,40 +1,34 @@
 {
-  "date": "2026-10-04",
-  "id": "678",
-  "title": "Valid Parenthesis String",
+  "date": "2026-10-05",
+  "id": "856",
+  "title": "Score of Parentheses",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/valid-parenthesis-string/",
+  "link": "https://leetcode.com/problems/score-of-parentheses/",
   "topics": [
     "String",
-    "Dynamic Programming",
     "Stack",
-    "Greedy",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given a string s containing only three types of characters: '(', ')' and '*', return true if s is valid."
+      "v": "Given a balanced parentheses string s, return the score of the string."
     },
     {
       "t": "text",
-      "v": "The following rules define a valid string:"
+      "v": "The score of a balanced parentheses string is based on the following rule:"
     },
     {
       "t": "text",
-      "v": "• Any left parenthesis '(' must have a corresponding right parenthesis ')'."
+      "v": "• \"()\" has score 1."
     },
     {
       "t": "text",
-      "v": "• Any right parenthesis ')' must have a corresponding left parenthesis '('."
+      "v": "• AB has score A + B, where A and B are balanced parentheses strings."
     },
     {
       "t": "text",
-      "v": "• Left parenthesis '(' must go before the corresponding right parenthesis ')'."
-    },
-    {
-      "t": "text",
-      "v": "• '*' could be treated as a single right parenthesis ')' or a single left parenthesis '(' or an empty string \"\"."
+      "v": "• (A) has score 2 * A, where A is a balanced parentheses string."
     },
     {
       "t": "text",
@@ -42,7 +36,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"()\"\nOutput: true"
+      "v": "Input: s = \"()\"\nOutput: 1"
     },
     {
       "t": "text",
@@ -50,7 +44,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(*)\"\nOutput: true"
+      "v": "Input: s = \"(())\"\nOutput: 2"
     },
     {
       "t": "text",
@@ -58,15 +52,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(*))\"\nOutput: true"
-    },
-    {
-      "t": "text",
-      "v": "Example 4:"
-    },
-    {
-      "t": "code",
-      "v": "Input: s = \"(\"\nOutput: false"
+      "v": "Input: s = \"()()\"\nOutput: 2"
     },
     {
       "t": "text",
@@ -74,11 +60,15 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= s.length <= 100"
+      "v": "• 2 <= s.length <= 50"
     },
     {
       "t": "text",
-      "v": "• s[i] is '(', ')' or '*'."
+      "v": "• s consists of only '(' and ')'."
+    },
+    {
+      "t": "text",
+      "v": "• s is a balanced parentheses string."
     }
   ]
 }
