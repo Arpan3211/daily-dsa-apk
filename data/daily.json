@@ -1,34 +1,43 @@
 {
-  "date": "2026-10-05",
-  "id": "856",
-  "title": "Score of Parentheses",
+  "date": "2026-10-06",
+  "id": "921",
+  "title": "Minimum Add to Make Parentheses Valid",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/score-of-parentheses/",
+  "link": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/",
   "topics": [
     "String",
     "Stack",
+    "Greedy",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given a balanced parentheses string s, return the score of the string."
+      "v": "A parentheses string is valid if and only if:"
     },
     {
       "t": "text",
-      "v": "The score of a balanced parentheses string is based on the following rule:"
+      "v": "• It is the empty string,"
     },
     {
       "t": "text",
-      "v": "• \"()\" has score 1."
+      "v": "• It can be written as AB (A concatenated with B), where A and B are valid strings, or"
     },
     {
       "t": "text",
-      "v": "• AB has score A + B, where A and B are balanced parentheses strings."
+      "v": "• It can be written as (A), where A is a valid string."
     },
     {
       "t": "text",
-      "v": "• (A) has score 2 * A, where A is a balanced parentheses string."
+      "v": "You are given a parentheses string s. In one move, you can insert a parenthesis at any position of the string."
+    },
+    {
+      "t": "text",
+      "v": "• For example, if s = \"()))\", you can insert an opening parenthesis to be \"(()))\" or a closing parenthesis to be \"())))\"."
+    },
+    {
+      "t": "text",
+      "v": "Return the minimum number of moves required to make s valid."
     },
     {
       "t": "text",
@@ -36,7 +45,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"()\"\nOutput: 1"
+      "v": "Input: s = \"())\"\nOutput: 1"
     },
     {
       "t": "text",
@@ -44,15 +53,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(())\"\nOutput: 2"
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "code",
-      "v": "Input: s = \"()()\"\nOutput: 2"
+      "v": "Input: s = \"(((\"\nOutput: 3"
     },
     {
       "t": "text",
@@ -60,15 +61,11 @@
     },
     {
       "t": "text",
-      "v": "• 2 <= s.length <= 50"
+      "v": "• 1 <= s.length <= 1000"
     },
     {
       "t": "text",
-      "v": "• s consists of only '(' and ')'."
-    },
-    {
-      "t": "text",
-      "v": "• s is a balanced parentheses string."
+      "v": "• s[i] is either '(' or ')'."
     }
   ]
 }
