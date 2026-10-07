@@ -1,43 +1,22 @@
 {
-  "date": "2026-10-06",
-  "id": "921",
-  "title": "Minimum Add to Make Parentheses Valid",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/",
+  "date": "2026-10-07",
+  "id": "301",
+  "title": "Remove Invalid Parentheses",
+  "difficulty": "Hard",
+  "link": "https://leetcode.com/problems/remove-invalid-parentheses/",
   "topics": [
     "String",
-    "Stack",
-    "Greedy",
-    "Bracket Sequences"
+    "Backtracking",
+    "Breadth-First Search"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "A parentheses string is valid if and only if:"
+      "v": "Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid."
     },
     {
       "t": "text",
-      "v": "• It is the empty string,"
-    },
-    {
-      "t": "text",
-      "v": "• It can be written as AB (A concatenated with B), where A and B are valid strings, or"
-    },
-    {
-      "t": "text",
-      "v": "• It can be written as (A), where A is a valid string."
-    },
-    {
-      "t": "text",
-      "v": "You are given a parentheses string s. In one move, you can insert a parenthesis at any position of the string."
-    },
-    {
-      "t": "text",
-      "v": "• For example, if s = \"()))\", you can insert an opening parenthesis to be \"(()))\" or a closing parenthesis to be \"())))\"."
-    },
-    {
-      "t": "text",
-      "v": "Return the minimum number of moves required to make s valid."
+      "v": "Return a list of unique strings that are valid with the minimum number of removals. You may return the answer in any order."
     },
     {
       "t": "text",
@@ -45,7 +24,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"())\"\nOutput: 1"
+      "v": "Input: s = \"()())()\"\nOutput: [\"(())()\",\"()()()\"]"
     },
     {
       "t": "text",
@@ -53,7 +32,15 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(((\"\nOutput: 3"
+      "v": "Input: s = \"(a)())()\"\nOutput: [\"(a())()\",\"(a)()()\"]"
+    },
+    {
+      "t": "text",
+      "v": "Example 3:"
+    },
+    {
+      "t": "code",
+      "v": "Input: s = \")(\"\nOutput: [\"\"]"
     },
     {
       "t": "text",
@@ -61,11 +48,15 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= s.length <= 1000"
+      "v": "• 1 <= s.length <= 25"
     },
     {
       "t": "text",
-      "v": "• s[i] is either '(' or ')'."
+      "v": "• s consists of lowercase English letters and parentheses '(' and ')'."
+    },
+    {
+      "t": "text",
+      "v": "• There will be at most 20 parentheses in s."
     }
   ]
 }
