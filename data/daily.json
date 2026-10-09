@@ -1,34 +1,43 @@
 {
-  "date": "2026-10-08",
-  "id": "1021",
-  "title": "Remove Outermost Parentheses",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/remove-outermost-parentheses/",
+  "date": "2026-10-09",
+  "id": "1541",
+  "title": "Minimum Insertions to Balance a Parentheses String",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/",
   "topics": [
     "String",
     "Stack",
+    "Greedy",
     "Bracket Sequences"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "A valid parentheses string is either empty \"\", \"(\" + A + \")\", or A + B, where A and B are valid parentheses strings, and + represents string concatenation."
+      "v": "Given a parentheses string s containing only the characters '(' and ')'. A parentheses string is balanced if:"
     },
     {
       "t": "text",
-      "v": "• For example, \"\", \"()\", \"(())()\", and \"(()(()))\" are all valid parentheses strings."
+      "v": "• Any left parenthesis '(' must have a corresponding two consecutive right parenthesis '))'."
     },
     {
       "t": "text",
-      "v": "A valid parentheses string s is primitive if it is nonempty, and there does not exist a way to split it into s = A + B, with A and B nonempty valid parentheses strings."
+      "v": "• Left parenthesis '(' must go before the corresponding two consecutive right parenthesis '))'."
     },
     {
       "t": "text",
-      "v": "Given a valid parentheses string s, consider its primitive decomposition: s = P1 + P2 + ... + Pk, where Pi are primitive valid parentheses strings."
+      "v": "In other words, we treat '(' as an opening parenthesis and '))' as a closing parenthesis."
     },
     {
       "t": "text",
-      "v": "Return s after removing the outermost parentheses of every primitive string in the primitive decomposition of s."
+      "v": "• For example, \"())\", \"())(())))\" and \"(())())))\" are balanced, \")()\", \"()))\" and \"(()))\" are not balanced."
+    },
+    {
+      "t": "text",
+      "v": "You can insert the characters '(' and ')' at any position of the string to balance it if needed."
+    },
+    {
+      "t": "text",
+      "v": "Return the minimum number of insertions needed to make s balanced."
     },
     {
       "t": "text",
@@ -36,7 +45,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(()())(())\"\nOutput: \"()()()\"\nExplanation: \nThe input string is \"(()())(())\", with primitive decomposition \"(()())\" + \"(())\".\nAfter removing outer parentheses of each part, this is \"()()\" + \"()\" = \"()()()\"."
+      "v": "Input: s = \"(()))\"\nOutput: 1\nExplanation: The second '(' has two matching '))', but the first '(' has only ')' matching. We need to add one more ')' at the end of the string to be \"(())))\" which is balanced."
     },
     {
       "t": "text",
@@ -44,7 +53,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(()())(())(()(()))\"\nOutput: \"()()()()(())\"\nExplanation: \nThe input string is \"(()())(())(()(()))\", with primitive decomposition \"(()())\" + \"(())\" + \"(()(()))\".\nAfter removing outer parentheses of each part, this is \"()()\" + \"()\" + \"()(())\" = \"()()()()(())\"."
+      "v": "Input: s = \"())\"\nOutput: 0\nExplanation: The string is already balanced."
     },
     {
       "t": "text",
@@ -52,7 +61,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"()()\"\nOutput: \"\"\nExplanation: \nThe input string is \"()()\", with primitive decomposition \"()\" + \"()\".\nAfter removing outer parentheses of each part, this is \"\" + \"\" = \"\"."
+      "v": "Input: s = \"))())(\"\nOutput: 3\nExplanation: Add '(' to match the first '))', Add '))' to match the last '('."
     },
     {
       "t": "text",
@@ -64,11 +73,7 @@
     },
     {
       "t": "text",
-      "v": "• s[i] is either '(' or ')'."
-    },
-    {
-      "t": "text",
-      "v": "• s is a valid parentheses string."
+      "v": "• s consists of '(' and ')' only."
     }
   ]
 }
