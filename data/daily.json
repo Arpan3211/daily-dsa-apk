@@ -1,43 +1,36 @@
 {
-  "date": "2026-10-09",
-  "id": "1541",
-  "title": "Minimum Insertions to Balance a Parentheses String",
+  "date": "2026-10-10",
+  "id": "2333",
+  "title": "Minimum Sum of Squared Difference",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/",
+  "link": "https://leetcode.com/problems/minimum-sum-of-squared-difference/",
   "topics": [
-    "String",
-    "Stack",
+    "Array",
+    "Binary Search",
     "Greedy",
-    "Bracket Sequences"
+    "Sorting",
+    "Heap (Priority Queue)"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given a parentheses string s containing only the characters '(' and ')'. A parentheses string is balanced if:"
+      "v": "You are given two positive 0-indexed integer arrays nums1 and nums2, both of length n."
     },
     {
       "t": "text",
-      "v": "• Any left parenthesis '(' must have a corresponding two consecutive right parenthesis '))'."
+      "v": "The sum of squared difference of arrays nums1 and nums2 is defined as the sum of (nums1[i] - nums2[i])^2 for each 0 <= i < n."
     },
     {
       "t": "text",
-      "v": "• Left parenthesis '(' must go before the corresponding two consecutive right parenthesis '))'."
+      "v": "You are also given two positive integers k1 and k2. You can modify any of the elements of nums1 by +1 or -1 at most k1 times. Similarly, you can modify any of the elements of nums2 by +1 or -1 at most k2 times."
     },
     {
       "t": "text",
-      "v": "In other words, we treat '(' as an opening parenthesis and '))' as a closing parenthesis."
+      "v": "Return the minimum sum of squared difference after modifying array nums1 at most k1 times and modifying array nums2 at most k2 times."
     },
     {
       "t": "text",
-      "v": "• For example, \"())\", \"())(())))\" and \"(())())))\" are balanced, \")()\", \"()))\" and \"(()))\" are not balanced."
-    },
-    {
-      "t": "text",
-      "v": "You can insert the characters '(' and ')' at any position of the string to balance it if needed."
-    },
-    {
-      "t": "text",
-      "v": "Return the minimum number of insertions needed to make s balanced."
+      "v": "Note: You are allowed to modify the array elements to become negative integers."
     },
     {
       "t": "text",
@@ -45,7 +38,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"(()))\"\nOutput: 1\nExplanation: The second '(' has two matching '))', but the first '(' has only ')' matching. We need to add one more ')' at the end of the string to be \"(())))\" which is balanced."
+      "v": "Input: nums1 = [1,2,3,4], nums2 = [2,10,20,19], k1 = 0, k2 = 0\nOutput: 579\nExplanation: The elements in nums1 and nums2 cannot be modified because k1 = 0 and k2 = 0. \nThe sum of square difference will be: (1 - 2)^2 + (2 - 10)^2 + (3 - 20)^2 + (4 - 19)^2 = 579."
     },
     {
       "t": "text",
@@ -53,15 +46,7 @@
     },
     {
       "t": "code",
-      "v": "Input: s = \"())\"\nOutput: 0\nExplanation: The string is already balanced."
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "code",
-      "v": "Input: s = \"))())(\"\nOutput: 3\nExplanation: Add '(' to match the first '))', Add '))' to match the last '('."
+      "v": "Input: nums1 = [1,4,10,12], nums2 = [5,8,6,9], k1 = 1, k2 = 1\nOutput: 43\nExplanation: One way to obtain the minimum sum of square difference is: \n- Increase nums1[0] once.\n- Increase nums2[2] once.\nThe minimum of the sum of square difference will be: \n(2 - 5)^2 + (4 - 8)^2 + (10 - 7)^2 + (12 - 9)^2 = 43.\nNote that, there are other ways to obtain the minimum of the sum of square difference, but there is no way to obtain a sum smaller than 43."
     },
     {
       "t": "text",
@@ -69,11 +54,19 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= s.length <= 10^5"
+      "v": "• n == nums1.length == nums2.length"
     },
     {
       "t": "text",
-      "v": "• s consists of '(' and ')' only."
+      "v": "• 1 <= n <= 10^5"
+    },
+    {
+      "t": "text",
+      "v": "• 0 <= nums1[i], nums2[i] <= 10^5"
+    },
+    {
+      "t": "text",
+      "v": "• 0 <= k1, k2 <= 10^9"
     }
   ]
 }
