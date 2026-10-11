@@ -1,36 +1,25 @@
 {
-  "date": "2026-10-10",
-  "id": "2333",
-  "title": "Minimum Sum of Squared Difference",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/minimum-sum-of-squared-difference/",
+  "date": "2026-10-11",
+  "id": "2778",
+  "title": "Sum of Squares of Special Elements ",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/sum-of-squares-of-special-elements/",
   "topics": [
     "Array",
-    "Binary Search",
-    "Greedy",
-    "Sorting",
-    "Heap (Priority Queue)"
+    "Enumeration"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given two positive 0-indexed integer arrays nums1 and nums2, both of length n."
+      "v": "You are given a 1-indexed integer array nums of length n."
     },
     {
       "t": "text",
-      "v": "The sum of squared difference of arrays nums1 and nums2 is defined as the sum of (nums1[i] - nums2[i])^2 for each 0 <= i < n."
+      "v": "An element nums[i] of nums is called special if i divides n, i.e. n % i == 0."
     },
     {
       "t": "text",
-      "v": "You are also given two positive integers k1 and k2. You can modify any of the elements of nums1 by +1 or -1 at most k1 times. Similarly, you can modify any of the elements of nums2 by +1 or -1 at most k2 times."
-    },
-    {
-      "t": "text",
-      "v": "Return the minimum sum of squared difference after modifying array nums1 at most k1 times and modifying array nums2 at most k2 times."
-    },
-    {
-      "t": "text",
-      "v": "Note: You are allowed to modify the array elements to become negative integers."
+      "v": "Return the sum of the squares of all special elements of nums."
     },
     {
       "t": "text",
@@ -38,7 +27,7 @@
     },
     {
       "t": "code",
-      "v": "Input: nums1 = [1,2,3,4], nums2 = [2,10,20,19], k1 = 0, k2 = 0\nOutput: 579\nExplanation: The elements in nums1 and nums2 cannot be modified because k1 = 0 and k2 = 0. \nThe sum of square difference will be: (1 - 2)^2 + (2 - 10)^2 + (3 - 20)^2 + (4 - 19)^2 = 579."
+      "v": "Input: nums = [1,2,3,4]\nOutput: 21\nExplanation: There are exactly 3 special elements in nums: nums[1] since 1 divides 4, nums[2] since 2 divides 4, and nums[4] since 4 divides 4. \nHence, the sum of the squares of all special elements of nums is nums[1] * nums[1] + nums[2] * nums[2] + nums[4] * nums[4] = 1 * 1 + 2 * 2 + 4 * 4 = 21.  "
     },
     {
       "t": "text",
@@ -46,7 +35,7 @@
     },
     {
       "t": "code",
-      "v": "Input: nums1 = [1,4,10,12], nums2 = [5,8,6,9], k1 = 1, k2 = 1\nOutput: 43\nExplanation: One way to obtain the minimum sum of square difference is: \n- Increase nums1[0] once.\n- Increase nums2[2] once.\nThe minimum of the sum of square difference will be: \n(2 - 5)^2 + (4 - 8)^2 + (10 - 7)^2 + (12 - 9)^2 = 43.\nNote that, there are other ways to obtain the minimum of the sum of square difference, but there is no way to obtain a sum smaller than 43."
+      "v": "Input: nums = [2,7,1,19,18,3]\nOutput: 63\nExplanation: There are exactly 4 special elements in nums: nums[1] since 1 divides 6, nums[2] since 2 divides 6, nums[3] since 3 divides 6, and nums[6] since 6 divides 6. \nHence, the sum of the squares of all special elements of nums is nums[1] * nums[1] + nums[2] * nums[2] + nums[3] * nums[3] + nums[6] * nums[6] = 2 * 2 + 7 * 7 + 1 * 1 + 3 * 3 = 63. "
     },
     {
       "t": "text",
@@ -54,19 +43,11 @@
     },
     {
       "t": "text",
-      "v": "• n == nums1.length == nums2.length"
+      "v": "• 1 <= nums.length == n <= 50"
     },
     {
       "t": "text",
-      "v": "• 1 <= n <= 10^5"
-    },
-    {
-      "t": "text",
-      "v": "• 0 <= nums1[i], nums2[i] <= 10^5"
-    },
-    {
-      "t": "text",
-      "v": "• 0 <= k1, k2 <= 10^9"
+      "v": "• 1 <= nums[i] <= 50"
     }
   ]
 }
