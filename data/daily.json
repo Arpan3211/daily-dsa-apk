@@ -1,125 +1,51 @@
 {
-  "date": "2026-10-14",
-  "id": "3723",
-  "title": "Maximize Sum of Squares of Digits",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
+  "date": "2026-10-15",
+  "id": "2913",
+  "title": "Subarrays Distinct Element Sum of Squares I",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/",
   "topics": [
-    "Math",
-    "Greedy"
+    "Array",
+    "Hash Table",
+    "Binary Indexed Tree",
+    "Segment Tree"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given two positive integers num and sum."
+      "v": "You are given a 0-indexed integer array nums."
     },
     {
       "t": "text",
-      "v": "A positive integer n is good if it satisfies both of the following:"
+      "v": "The distinct count of a subarray of nums is defined as:"
     },
     {
       "t": "text",
-      "v": "• The number of digits in n is exactly num."
+      "v": "• Let nums[i..j] be a subarray of nums consisting of all the indices from i to j such that 0 <= i <= j < nums.length. Then the number of distinct values in nums[i..j] is called the distinct count of nums[i..j]."
     },
     {
       "t": "text",
-      "v": "• The sum of digits in n is exactly sum."
+      "v": "Return the sum of the squares of distinct counts of all subarrays of nums."
     },
     {
       "t": "text",
-      "v": "The score of a good integer n is the sum of the squares of digits in n."
-    },
-    {
-      "t": "text",
-      "v": "Return a string denoting the good integer n that achieves the maximum score. If there are multiple possible integers, return the maximum ​​​​​​​one. If no such integer exists, return an empty string."
+      "v": "A subarray is a contiguous non-empty sequence of elements within an array."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "text",
-      "v": "Input: num = 2, sum = 3"
-    },
-    {
-      "t": "text",
-      "v": "Output: \"30\""
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "There are 3 good integers: 12, 21, and 30."
-    },
-    {
-      "t": "text",
-      "v": "• The score of 12 is 1^2 + 2^2 = 5."
-    },
-    {
-      "t": "text",
-      "v": "• The score of 21 is 2^2 + 1^2 = 5."
-    },
-    {
-      "t": "text",
-      "v": "• The score of 30 is 3^2 + 0^2 = 9."
-    },
-    {
-      "t": "text",
-      "v": "The maximum score is 9, which is achieved by the good integer 30. Therefore, the answer is \"30\"."
+      "t": "code",
+      "v": "Input: nums = [1,2,1]\nOutput: 15\nExplanation: Six possible subarrays are:\n[1]: 1 distinct value\n[2]: 1 distinct value\n[1]: 1 distinct value\n[1,2]: 2 distinct values\n[2,1]: 2 distinct values\n[1,2,1]: 2 distinct values\nThe sum of the squares of the distinct counts in all subarrays is equal to 1^2 + 1^2 + 1^2 + 2^2 + 2^2 + 2^2 = 15."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "text",
-      "v": "Input: num = 2, sum = 17"
-    },
-    {
-      "t": "text",
-      "v": "Output: \"98\""
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "There are 2 good integers: 89 and 98."
-    },
-    {
-      "t": "text",
-      "v": "• The score of 89 is 8^2 + 9^2 = 145."
-    },
-    {
-      "t": "text",
-      "v": "• The score of 98 is 9^2 + 8^2 = 145."
-    },
-    {
-      "t": "text",
-      "v": "The maximum score is 145. The maximum good integer that achieves this score is 98. Therefore, the answer is \"98\"."
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "text",
-      "v": "Input: num = 1, sum = 10"
-    },
-    {
-      "t": "text",
-      "v": "Output: \"\""
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "There are no integers that have exactly 1 digit and whose digits sum to 10. Therefore, the answer is \"\"."
+      "t": "code",
+      "v": "Input: nums = [1,1]\nOutput: 3\nExplanation: Three possible subarrays are:\n[1]: 1 distinct value\n[1]: 1 distinct value\n[1,1]: 1 distinct value\nThe sum of the squares of the distinct counts in all subarrays is equal to 1^2 + 1^2 + 1^2 = 3."
     },
     {
       "t": "text",
@@ -127,11 +53,11 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= num <= 2 * 10^5"
+      "v": "• 1 <= nums.length <= 100"
     },
     {
       "t": "text",
-      "v": "• 1 <= sum <= 2 * 10^6"
+      "v": "• 1 <= nums[i] <= 100"
     }
   ]
 }
