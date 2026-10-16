@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-15",
-  "id": "2913",
-  "title": "Subarrays Distinct Element Sum of Squares I",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/",
+  "date": "2026-10-16",
+  "id": "2916",
+  "title": "Subarrays Distinct Element Sum of Squares II",
+  "difficulty": "Hard",
+  "link": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-ii/",
   "topics": [
     "Array",
     "Hash Table",
@@ -29,6 +29,10 @@
     },
     {
       "t": "text",
+      "v": "Since the answer may be very large, return it modulo 10^9 + 7."
+    },
+    {
+      "t": "text",
       "v": "A subarray is a contiguous non-empty sequence of elements within an array."
     },
     {
@@ -45,7 +49,7 @@
     },
     {
       "t": "code",
-      "v": "Input: nums = [1,1]\nOutput: 3\nExplanation: Three possible subarrays are:\n[1]: 1 distinct value\n[1]: 1 distinct value\n[1,1]: 1 distinct value\nThe sum of the squares of the distinct counts in all subarrays is equal to 1^2 + 1^2 + 1^2 = 3."
+      "v": "Input: nums = [2,2]\nOutput: 3\nExplanation: Three possible subarrays are:\n[2]: 1 distinct value\n[2]: 1 distinct value\n[2,2]: 1 distinct value\nThe sum of the squares of the distinct counts in all subarrays is equal to 1^2 + 1^2 + 1^2 = 3."
     },
     {
       "t": "text",
@@ -53,11 +57,11 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= nums.length <= 100"
+      "v": "• 1 <= nums.length <= 10^5"
     },
     {
       "t": "text",
-      "v": "• 1 <= nums[i] <= 100"
+      "v": "• 1 <= nums[i] <= 10^5"
     }
   ]
 }
