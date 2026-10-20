@@ -1,50 +1,123 @@
 {
-  "date": "2026-10-19",
-  "id": "2089",
-  "title": "Find Target Indices After Sorting Array",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
+  "date": "2026-10-20",
+  "id": "3886",
+  "title": "Sum of Sortable Integers",
+  "difficulty": "Hard",
+  "link": "https://leetcode.com/problems/sum-of-sortable-integers/",
   "topics": [
     "Array",
-    "Binary Search",
-    "Sorting"
+    "Math",
+    "Sorting",
+    "Enumeration"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given a 0-indexed integer array nums and a target element target."
+      "v": "You are given an integer array nums of length n."
     },
     {
       "t": "text",
-      "v": "A target index is an index i such that nums[i] == target."
+      "v": "An integer k is called sortable if k divides n and you can sort nums in non-decreasing order by sequentially performing the following operations:"
     },
     {
       "t": "text",
-      "v": "Return a list of the target indices of nums after sorting nums in non-decreasing order. If there are no target indices, return an empty list. The returned list must be sorted in increasing order."
+      "v": "• Partition nums into consecutive subarrays of length k."
+    },
+    {
+      "t": "text",
+      "v": "• Cyclically rotate each subarray independently any number of times to the left or to the right."
+    },
+    {
+      "t": "text",
+      "v": "Return an integer denoting the sum of all possible sortable integers k."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "code",
-      "v": "Input: nums = [1,2,5,2,3], target = 2\nOutput: [1,2]\nExplanation: After sorting, nums is [1,2,2,3,5].\nThe indices where nums[i] == 2 are 1 and 2."
+      "t": "text",
+      "v": "Input: nums = [3,1,2]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 3"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:​​​​​​​"
+    },
+    {
+      "t": "text",
+      "v": "• For n = 3, possible divisors are 1 and 3."
+    },
+    {
+      "t": "text",
+      "v": "• For k = 1: each subarray has one element. No rotation can sort the array."
+    },
+    {
+      "t": "text",
+      "v": "• For k = 3: the single subarray [3, 1, 2] can be rotated once to produce [1, 2, 3], which is sorted."
+    },
+    {
+      "t": "text",
+      "v": "• Only k = 3 is sortable. Hence, the answer is 3."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "code",
-      "v": "Input: nums = [1,2,5,2,3], target = 3\nOutput: [3]\nExplanation: After sorting, nums is [1,2,2,3,5].\nThe index where nums[i] == 3 is 3."
+      "t": "text",
+      "v": "Input: nums = [7,6,5]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 0"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "• For n = 3, possible divisors are 1 and 3."
+    },
+    {
+      "t": "text",
+      "v": "• For k = 1: each subarray has one element. No rotation can sort the array."
+    },
+    {
+      "t": "text",
+      "v": "• For k = 3: the single subarray [7, 6, 5] cannot be rotated into non-decreasing order."
+    },
+    {
+      "t": "text",
+      "v": "• No k is sortable. Hence, the answer is 0."
     },
     {
       "t": "text",
       "v": "Example 3:"
     },
     {
-      "t": "code",
-      "v": "Input: nums = [1,2,5,2,3], target = 5\nOutput: [4]\nExplanation: After sorting, nums is [1,2,2,3,5].\nThe index where nums[i] == 5 is 4."
+      "t": "text",
+      "v": "Input: nums = [5,8]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 3"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:​​​​​​​"
+    },
+    {
+      "t": "text",
+      "v": "• For n = 2, possible divisors are 1 and 2."
+    },
+    {
+      "t": "text",
+      "v": "• Since [5, 8] is already sorted, every divisor is sortable. Hence, the answer is 1 + 2 = 3."
     },
     {
       "t": "text",
@@ -52,11 +125,11 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= nums.length <= 100"
+      "v": "• 1 <= n == nums.length <= 10^5"
     },
     {
       "t": "text",
-      "v": "• 1 <= nums[i], target <= 100"
+      "v": "• 1 <= nums[i] <= 10^5"
     }
   ]
 }
