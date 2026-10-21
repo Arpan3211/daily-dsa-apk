@@ -1,35 +1,24 @@
 {
-  "date": "2026-10-20",
-  "id": "3886",
-  "title": "Sum of Sortable Integers",
-  "difficulty": "Hard",
-  "link": "https://leetcode.com/problems/sum-of-sortable-integers/",
+  "date": "2026-10-21",
+  "id": "3863",
+  "title": "Minimum Operations to Sort a String",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/minimum-operations-to-sort-a-string/",
   "topics": [
-    "Array",
-    "Math",
-    "Sorting",
-    "Enumeration"
+    "String"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an integer array nums of length n."
+      "v": "You are given a string s consisting of lowercase English letters."
     },
     {
       "t": "text",
-      "v": "An integer k is called sortable if k divides n and you can sort nums in non-decreasing order by sequentially performing the following operations:"
+      "v": "In one operation, you can select any substring of s that is not the entire string and sort it in non-descending alphabetical order."
     },
     {
       "t": "text",
-      "v": "• Partition nums into consecutive subarrays of length k."
-    },
-    {
-      "t": "text",
-      "v": "• Cyclically rotate each subarray independently any number of times to the left or to the right."
-    },
-    {
-      "t": "text",
-      "v": "Return an integer denoting the sum of all possible sortable integers k."
+      "v": "Return the minimum number of operations required to make s sorted in non-descending order. If it is not possible, return -1."
     },
     {
       "t": "text",
@@ -37,11 +26,11 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [3,1,2]"
+      "v": "Input: s = \"dog\""
     },
     {
       "t": "text",
-      "v": "Output: 3"
+      "v": "Output: 1"
     },
     {
       "t": "text",
@@ -49,19 +38,11 @@
     },
     {
       "t": "text",
-      "v": "• For n = 3, possible divisors are 1 and 3."
+      "v": "• Sort substring \"og\" to \"go\"."
     },
     {
       "t": "text",
-      "v": "• For k = 1: each subarray has one element. No rotation can sort the array."
-    },
-    {
-      "t": "text",
-      "v": "• For k = 3: the single subarray [3, 1, 2] can be rotated once to produce [1, 2, 3], which is sorted."
-    },
-    {
-      "t": "text",
-      "v": "• Only k = 3 is sortable. Hence, the answer is 3."
+      "v": "• Now, s = \"dgo\", which is sorted in ascending order. Thus, the answer is 1."
     },
     {
       "t": "text",
@@ -69,11 +50,11 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [7,6,5]"
+      "v": "Input: s = \"card\""
     },
     {
       "t": "text",
-      "v": "Output: 0"
+      "v": "Output: 2"
     },
     {
       "t": "text",
@@ -81,19 +62,11 @@
     },
     {
       "t": "text",
-      "v": "• For n = 3, possible divisors are 1 and 3."
+      "v": "• Sort substring \"car\" to \"acr\", so s = \"acrd\"."
     },
     {
       "t": "text",
-      "v": "• For k = 1: each subarray has one element. No rotation can sort the array."
-    },
-    {
-      "t": "text",
-      "v": "• For k = 3: the single subarray [7, 6, 5] cannot be rotated into non-decreasing order."
-    },
-    {
-      "t": "text",
-      "v": "• No k is sortable. Hence, the answer is 0."
+      "v": "• Sort substring \"rd\" to \"dr\", making s = \"acdr\", which is sorted in ascending order. Thus, the answer is 2."
     },
     {
       "t": "text",
@@ -101,23 +74,19 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [5,8]"
+      "v": "Input: s = \"gf\""
     },
     {
       "t": "text",
-      "v": "Output: 3"
+      "v": "Output: -1"
     },
     {
       "t": "text",
-      "v": "Explanation:​​​​​​​"
+      "v": "Explanation:"
     },
     {
       "t": "text",
-      "v": "• For n = 2, possible divisors are 1 and 2."
-    },
-    {
-      "t": "text",
-      "v": "• Since [5, 8] is already sorted, every divisor is sortable. Hence, the answer is 1 + 2 = 3."
+      "v": "• It is impossible to sort s under the given constraints. Thus, the answer is -1."
     },
     {
       "t": "text",
@@ -125,11 +94,11 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= n == nums.length <= 10^5"
+      "v": "• 1 <= s.length <= 10^5"
     },
     {
       "t": "text",
-      "v": "• 1 <= nums[i] <= 10^5"
+      "v": "• s consists of only lowercase English letters."
     }
   ]
 }
