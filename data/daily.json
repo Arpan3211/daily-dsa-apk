@@ -1,32 +1,25 @@
 {
-  "date": "2026-10-22",
-  "id": "3942",
-  "title": "Minimum Operations to Sort a Permutation",
+  "date": "2026-10-23",
+  "id": "3644",
+  "title": "Maximum K to Sort a Permutation",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
+  "link": "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/",
   "topics": [
-    "Array"
+    "Array",
+    "Bit Manipulation"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an integer array nums of length n, where nums is a permutation of the integers from 0 to n - 1."
+      "v": "You are given an integer array nums of length n, where nums is a permutation of the numbers in the range [0..n - 1]."
     },
     {
       "t": "text",
-      "v": "You may perform only the following operations:"
+      "v": "You may swap elements at indices i and j only if nums[i] AND nums[j] == k, where AND denotes the bitwise AND operation and k is a non-negative integer."
     },
     {
       "t": "text",
-      "v": "• Reverse the entire array."
-    },
-    {
-      "t": "text",
-      "v": "• Rotate Left by One: Move the first element to the end of the array, and rest elements to left by one position."
-    },
-    {
-      "t": "text",
-      "v": "Return an integer denoting the minimum number of operations required to sort the array in increasing order. If it is not possible to sort the array using only the given operations, return -1."
+      "v": "Return the maximum value of k such that the array can be sorted in non-decreasing order using any number of such swaps. If nums is already sorted, return 0."
     },
     {
       "t": "text",
@@ -34,11 +27,11 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [0,2,1]"
+      "v": "Input: nums = [0,3,2,1]"
     },
     {
       "t": "text",
-      "v": "Output: 2"
+      "v": "Output: 1"
     },
     {
       "t": "text",
@@ -46,15 +39,7 @@
     },
     {
       "t": "text",
-      "v": "• Rotate Left by one: [2, 1, 0]"
-    },
-    {
-      "t": "text",
-      "v": "• Reverse the array: [0, 1, 2]"
-    },
-    {
-      "t": "text",
-      "v": "The array becomes sorted in 2 operations, which is minimal"
+      "v": "Choose k = 1. Swapping nums[1] = 3 and nums[3] = 1 is allowed since nums[1] AND nums[3] == 1, resulting in a sorted permutation: [0, 1, 2, 3]."
     },
     {
       "t": "text",
@@ -62,7 +47,7 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [1,0,2]"
+      "v": "Input: nums = [0,1,3,2]"
     },
     {
       "t": "text",
@@ -74,15 +59,7 @@
     },
     {
       "t": "text",
-      "v": "• Reverse the array: [2, 0, 1]"
-    },
-    {
-      "t": "text",
-      "v": "• Rotate Left by one: [0, 1, 2]"
-    },
-    {
-      "t": "text",
-      "v": "The array becomes sorted in 2 operations, which is minimal."
+      "v": "Choose k = 2. Swapping nums[2] = 3 and nums[3] = 2 is allowed since nums[2] AND nums[3] == 2, resulting in a sorted permutation: [0, 1, 2, 3]."
     },
     {
       "t": "text",
@@ -90,11 +67,11 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [2,0,1,3]"
+      "v": "Input: nums = [3,2,1,0]"
     },
     {
       "t": "text",
-      "v": "Output: -1"
+      "v": "Output: 0"
     },
     {
       "t": "text",
@@ -102,7 +79,7 @@
     },
     {
       "t": "text",
-      "v": "It is impossible to reach [2, 0, 1, 3]. Thus, the answer is -1."
+      "v": "Only k = 0 allows sorting since no greater k allows the required swaps where nums[i] AND nums[j] == k."
     },
     {
       "t": "text",
