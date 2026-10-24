@@ -1,85 +1,45 @@
 {
-  "date": "2026-10-23",
-  "id": "3644",
-  "title": "Maximum K to Sort a Permutation",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/",
+  "date": "2026-10-24",
+  "id": "2409",
+  "title": "Count Days Spent Together",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/count-days-spent-together/",
   "topics": [
-    "Array",
-    "Bit Manipulation"
+    "Math",
+    "String"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an integer array nums of length n, where nums is a permutation of the numbers in the range [0..n - 1]."
+      "v": "Alice and Bob are traveling to Rome for separate business meetings."
     },
     {
       "t": "text",
-      "v": "You may swap elements at indices i and j only if nums[i] AND nums[j] == k, where AND denotes the bitwise AND operation and k is a non-negative integer."
+      "v": "You are given 4 strings arriveAlice, leaveAlice, arriveBob, and leaveBob. Alice will be in the city from the dates arriveAlice to leaveAlice (inclusive), while Bob will be in the city from the dates arriveBob to leaveBob (inclusive). Each will be a 5-character string in the format \"MM-DD\", corresponding to the month and day of the date."
     },
     {
       "t": "text",
-      "v": "Return the maximum value of k such that the array can be sorted in non-decreasing order using any number of such swaps. If nums is already sorted, return 0."
+      "v": "Return the total number of days that Alice and Bob are in Rome together."
+    },
+    {
+      "t": "text",
+      "v": "You can assume that all dates occur in the same calendar year, which is not a leap year. Note that the number of days per month can be represented as: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "text",
-      "v": "Input: nums = [0,3,2,1]"
-    },
-    {
-      "t": "text",
-      "v": "Output: 1"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "Choose k = 1. Swapping nums[1] = 3 and nums[3] = 1 is allowed since nums[1] AND nums[3] == 1, resulting in a sorted permutation: [0, 1, 2, 3]."
+      "t": "code",
+      "v": "Input: arriveAlice = \"08-15\", leaveAlice = \"08-18\", arriveBob = \"08-16\", leaveBob = \"08-19\"\nOutput: 3\nExplanation: Alice will be in Rome from August 15 to August 18. Bob will be in Rome from August 16 to August 19. They are both in Rome together on August 16th, 17th, and 18th, so the answer is 3."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "text",
-      "v": "Input: nums = [0,1,3,2]"
-    },
-    {
-      "t": "text",
-      "v": "Output: 2"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "Choose k = 2. Swapping nums[2] = 3 and nums[3] = 2 is allowed since nums[2] AND nums[3] == 2, resulting in a sorted permutation: [0, 1, 2, 3]."
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "text",
-      "v": "Input: nums = [3,2,1,0]"
-    },
-    {
-      "t": "text",
-      "v": "Output: 0"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "Only k = 0 allows sorting since no greater k allows the required swaps where nums[i] AND nums[j] == k."
+      "t": "code",
+      "v": "Input: arriveAlice = \"10-01\", leaveAlice = \"10-31\", arriveBob = \"11-01\", leaveBob = \"12-31\"\nOutput: 0\nExplanation: There is no day when Alice and Bob are in Rome together, so we return 0."
     },
     {
       "t": "text",
@@ -87,15 +47,15 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= n == nums.length <= 10^5"
+      "v": "• All dates are provided in the format \"MM-DD\"."
     },
     {
       "t": "text",
-      "v": "• 0 <= nums[i] <= n - 1"
+      "v": "• Alice and Bob's arrival dates are earlier than or equal to their leaving dates."
     },
     {
       "t": "text",
-      "v": "• nums is a permutation of integers from 0 to n - 1."
+      "v": "• The given dates are valid dates of a non-leap year."
     }
   ]
 }
