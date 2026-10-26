@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-25",
-  "id": "1254",
-  "title": "Number of Closed Islands",
+  "date": "2026-10-26",
+  "id": "3619",
+  "title": "Count Islands With Total Value Divisible by K",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/number-of-closed-islands/",
+  "link": "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/",
   "topics": [
     "Array",
     "Depth-First Search",
@@ -14,35 +14,55 @@
   "blocks": [
     {
       "t": "text",
-      "v": "Given a 2D grid consists of 0s (land) and 1s (water). An island is a maximal 4-directionally connected group of 0s and a closed island is an island totally (all left, top, right, bottom) surrounded by 1s."
+      "v": "You are given an m x n matrix grid and a positive integer k. An island is a group of positive integers (representing land) that are 4-directionally connected (horizontally or vertically)."
     },
     {
       "t": "text",
-      "v": "Return the number of closed islands."
+      "v": "The total value of an island is the sum of the values of all cells in the island."
+    },
+    {
+      "t": "text",
+      "v": "Return the number of islands with a total value divisible by k."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "code",
-      "v": "Input: grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]\nOutput: 2\nExplanation: \nIslands in gray are closed because they are completely surrounded by water (group of 1s)."
+      "t": "text",
+      "v": "Input: grid = [[0,2,1,0,0],[0,5,0,0,5],[0,0,1,0,0],[0,1,4,7,0],[0,2,0,0,8]], k = 5"
+    },
+    {
+      "t": "text",
+      "v": "Output: 2"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "The grid contains four islands. The islands highlighted in blue have a total value that is divisible by 5, while the islands highlighted in red do not."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "code",
-      "v": "Input: grid = [[0,0,1,0,0],[0,1,0,1,0],[0,1,1,1,0]]\nOutput: 1"
+      "t": "text",
+      "v": "Input: grid = [[3,0,3,0], [0,3,0,3], [3,0,3,0]], k = 3"
     },
     {
       "t": "text",
-      "v": "Example 3:"
+      "v": "Output: 6"
     },
     {
-      "t": "code",
-      "v": "Input: grid = [[1,1,1,1,1,1,1],\n               [1,0,0,0,0,0,1],\n               [1,0,1,1,1,0,1],\n               [1,0,1,0,1,0,1],\n               [1,0,1,1,1,0,1],\n               [1,0,0,0,0,0,1],\n               [1,1,1,1,1,1,1]]\nOutput: 2"
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "The grid contains six islands, each with a total value that is divisible by 3."
     },
     {
       "t": "text",
@@ -50,11 +70,27 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= grid.length, grid[0].length <= 100"
+      "v": "• m == grid.length"
     },
     {
       "t": "text",
-      "v": "• 0 <= grid[i][j] <=1"
+      "v": "• n == grid[i].length"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= m, n <= 1000"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= m * n <= 10^5"
+    },
+    {
+      "t": "text",
+      "v": "• 0 <= grid[i][j] <= 10^6"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= k <= 10^6"
     }
   ]
 }
