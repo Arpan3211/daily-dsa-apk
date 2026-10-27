@@ -1,28 +1,54 @@
 {
-  "date": "2026-10-26",
-  "id": "3619",
-  "title": "Count Islands With Total Value Divisible by K",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/",
-  "topics": [
-    "Array",
-    "Depth-First Search",
-    "Breadth-First Search",
-    "Union-Find",
-    "Matrix"
-  ],
+  "date": "2026-10-27",
+  "id": "3963",
+  "title": "Create Grid With Exactly One Path",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/create-grid-with-exactly-one-path/",
+  "topics": [],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an m x n matrix grid and a positive integer k. An island is a group of positive integers (representing land) that are 4-directionally connected (horizontally or vertically)."
+      "v": "You are given two integers m and n, representing the number of rows and columns of a grid."
     },
     {
       "t": "text",
-      "v": "The total value of an island is the sum of the values of all cells in the island."
+      "v": "Construct any m x n grid consisting only of the characters '.' and '#', where:"
     },
     {
       "t": "text",
-      "v": "Return the number of islands with a total value divisible by k."
+      "v": "• '.' represents a free cell."
+    },
+    {
+      "t": "text",
+      "v": "• '#' represents an obstacle cell."
+    },
+    {
+      "t": "text",
+      "v": "A valid path is a sequence of free cells that:"
+    },
+    {
+      "t": "text",
+      "v": "• Starts at the top-left cell (0, 0)."
+    },
+    {
+      "t": "text",
+      "v": "• Ends at the bottom-right cell (m - 1, n - 1)."
+    },
+    {
+      "t": "text",
+      "v": "• Moves only:"
+    },
+    {
+      "t": "text",
+      "v": "• Right, from (i, j) to (i, j + 1), or"
+    },
+    {
+      "t": "text",
+      "v": "• Down, from (i, j) to (i + 1, j)."
+    },
+    {
+      "t": "text",
+      "v": "Return any grid such that there is exactly one valid path from the top-left cell to the bottom-right cell."
     },
     {
       "t": "text",
@@ -30,11 +56,11 @@
     },
     {
       "t": "text",
-      "v": "Input: grid = [[0,2,1,0,0],[0,5,0,0,5],[0,0,1,0,0],[0,1,4,7,0],[0,2,0,0,8]], k = 5"
+      "v": "Input: m = 2, n = 3"
     },
     {
       "t": "text",
-      "v": "Output: 2"
+      "v": "Output: [\"..#\",\"#..\"]"
     },
     {
       "t": "text",
@@ -42,7 +68,7 @@
     },
     {
       "t": "text",
-      "v": "The grid contains four islands. The islands highlighted in blue have a total value that is divisible by 5, while the islands highlighted in red do not."
+      "v": "The only valid path is: (0,0) → (0,1) → (1,1) → (1,2)"
     },
     {
       "t": "text",
@@ -50,11 +76,11 @@
     },
     {
       "t": "text",
-      "v": "Input: grid = [[3,0,3,0], [0,3,0,3], [3,0,3,0]], k = 3"
+      "v": "Input: m = 3, n = 3"
     },
     {
       "t": "text",
-      "v": "Output: 6"
+      "v": "Output: [\"..#\",\"#..\",\"##.\"]"
     },
     {
       "t": "text",
@@ -62,7 +88,27 @@
     },
     {
       "t": "text",
-      "v": "The grid contains six islands, each with a total value that is divisible by 3."
+      "v": "The only valid path is: (0,0) → (0,1) → (1,1) → (1,2) → (2,2)"
+    },
+    {
+      "t": "text",
+      "v": "Example 3:"
+    },
+    {
+      "t": "text",
+      "v": "Input: m = 1, n = 4"
+    },
+    {
+      "t": "text",
+      "v": "Output: [\"....\"]"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "The only valid path is: (0,0) → (0,1) → (0,2) → (0,3)"
     },
     {
       "t": "text",
@@ -70,27 +116,7 @@
     },
     {
       "t": "text",
-      "v": "• m == grid.length"
-    },
-    {
-      "t": "text",
-      "v": "• n == grid[i].length"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= m, n <= 1000"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= m * n <= 10^5"
-    },
-    {
-      "t": "text",
-      "v": "• 0 <= grid[i][j] <= 10^6"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= k <= 10^6"
+      "v": "• 1 <= m, n <= 25"
     }
   ]
 }
