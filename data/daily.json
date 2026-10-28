@@ -1,54 +1,35 @@
 {
-  "date": "2026-10-27",
-  "id": "3963",
-  "title": "Create Grid With Exactly One Path",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/create-grid-with-exactly-one-path/",
-  "topics": [],
+  "date": "2026-10-28",
+  "id": "3882",
+  "title": "Minimum XOR Path in a Grid",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/minimum-xor-path-in-a-grid/",
+  "topics": [
+    "Array",
+    "Dynamic Programming",
+    "Bit Manipulation",
+    "Matrix"
+  ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given two integers m and n, representing the number of rows and columns of a grid."
+      "v": "You are given a 2D integer array grid of size m * n."
     },
     {
       "t": "text",
-      "v": "Construct any m x n grid consisting only of the characters '.' and '#', where:"
+      "v": "You start at the top-left cell (0, 0) and want to reach the bottom-right cell (m - 1, n - 1)."
     },
     {
       "t": "text",
-      "v": "• '.' represents a free cell."
+      "v": "At each step, you may move either right or down."
     },
     {
       "t": "text",
-      "v": "• '#' represents an obstacle cell."
+      "v": "The cost of a path is defined as the bitwise XOR of all the values in the cells along that path, including the start and end cells."
     },
     {
       "t": "text",
-      "v": "A valid path is a sequence of free cells that:"
-    },
-    {
-      "t": "text",
-      "v": "• Starts at the top-left cell (0, 0)."
-    },
-    {
-      "t": "text",
-      "v": "• Ends at the bottom-right cell (m - 1, n - 1)."
-    },
-    {
-      "t": "text",
-      "v": "• Moves only:"
-    },
-    {
-      "t": "text",
-      "v": "• Right, from (i, j) to (i, j + 1), or"
-    },
-    {
-      "t": "text",
-      "v": "• Down, from (i, j) to (i + 1, j)."
-    },
-    {
-      "t": "text",
-      "v": "Return any grid such that there is exactly one valid path from the top-left cell to the bottom-right cell."
+      "v": "Return the minimum possible XOR value among all valid paths from (0, 0) to (m - 1, n - 1)."
     },
     {
       "t": "text",
@@ -56,11 +37,11 @@
     },
     {
       "t": "text",
-      "v": "Input: m = 2, n = 3"
+      "v": "Input: grid = [[1,2],[3,4]]"
     },
     {
       "t": "text",
-      "v": "Output: [\"..#\",\"#..\"]"
+      "v": "Output: 6"
     },
     {
       "t": "text",
@@ -68,7 +49,19 @@
     },
     {
       "t": "text",
-      "v": "The only valid path is: (0,0) → (0,1) → (1,1) → (1,2)"
+      "v": "There are two valid paths:"
+    },
+    {
+      "t": "text",
+      "v": "• (0, 0) → (0, 1) → (1, 1) with XOR: 1 XOR 2 XOR 4 = 7"
+    },
+    {
+      "t": "text",
+      "v": "• (0, 0) → (1, 0) → (1, 1) with XOR: 1 XOR 3 XOR 4 = 6"
+    },
+    {
+      "t": "text",
+      "v": "The minimum XOR value among all valid paths is 6."
     },
     {
       "t": "text",
@@ -76,11 +69,11 @@
     },
     {
       "t": "text",
-      "v": "Input: m = 3, n = 3"
+      "v": "Input: grid = [[6,7],[5,8]]"
     },
     {
       "t": "text",
-      "v": "Output: [\"..#\",\"#..\",\"##.\"]"
+      "v": "Output: 9"
     },
     {
       "t": "text",
@@ -88,7 +81,19 @@
     },
     {
       "t": "text",
-      "v": "The only valid path is: (0,0) → (0,1) → (1,1) → (1,2) → (2,2)"
+      "v": "There are two valid paths:"
+    },
+    {
+      "t": "text",
+      "v": "• (0, 0) → (0, 1) → (1, 1) with XOR: 6 XOR 7 XOR 8 = 9"
+    },
+    {
+      "t": "text",
+      "v": "• (0, 0) → (1, 0) → (1, 1) with XOR: 6 XOR 5 XOR 8 = 11"
+    },
+    {
+      "t": "text",
+      "v": "The minimum XOR value among all valid paths is 9."
     },
     {
       "t": "text",
@@ -96,11 +101,11 @@
     },
     {
       "t": "text",
-      "v": "Input: m = 1, n = 4"
+      "v": "Input: grid = [[2,7,5]]"
     },
     {
       "t": "text",
-      "v": "Output: [\"....\"]"
+      "v": "Output: 0"
     },
     {
       "t": "text",
@@ -108,7 +113,15 @@
     },
     {
       "t": "text",
-      "v": "The only valid path is: (0,0) → (0,1) → (0,2) → (0,3)"
+      "v": "There is only one valid path:"
+    },
+    {
+      "t": "text",
+      "v": "• (0, 0) → (0, 1) → (0, 2) with XOR: 2 XOR 7 XOR 5 = 0"
+    },
+    {
+      "t": "text",
+      "v": "The XOR value of this path is 0, which is the minimum possible."
     },
     {
       "t": "text",
@@ -116,7 +129,19 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= m, n <= 25"
+      "v": "• 1 <= m == grid.length <= 1000"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= n == grid[i].length <= 1000"
+    },
+    {
+      "t": "text",
+      "v": "• m * n <= 1000"
+    },
+    {
+      "t": "text",
+      "v": "• 0 <= grid[i][j] <= 1023​"
     }
   ]
 }
