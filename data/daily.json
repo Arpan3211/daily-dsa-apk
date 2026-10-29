@@ -1,35 +1,43 @@
 {
-  "date": "2026-10-28",
-  "id": "3882",
-  "title": "Minimum XOR Path in a Grid",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/minimum-xor-path-in-a-grid/",
+  "date": "2026-10-29",
+  "id": "3841",
+  "title": "Palindromic Path Queries in a Tree",
+  "difficulty": "Hard",
+  "link": "https://leetcode.com/problems/palindromic-path-queries-in-a-tree/",
   "topics": [
     "Array",
-    "Dynamic Programming",
+    "String",
+    "Divide and Conquer",
     "Bit Manipulation",
-    "Matrix"
+    "Tree",
+    "Depth-First Search",
+    "Binary Indexed Tree",
+    "Segment Tree"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given a 2D integer array grid of size m * n."
+      "v": "You are given an undirected tree with n nodes labeled 0 to n - 1. This is represented by a 2D array edges of length n - 1, where edges[i] = [ui, vi] indicates an undirected edge between nodes ui and vi."
     },
     {
       "t": "text",
-      "v": "You start at the top-left cell (0, 0) and want to reach the bottom-right cell (m - 1, n - 1)."
+      "v": "You are also given a string s of length n consisting of lowercase English letters, where s[i] represents the character assigned to node i."
     },
     {
       "t": "text",
-      "v": "At each step, you may move either right or down."
+      "v": "You are also given a string array queries, where each queries[i] is either:"
     },
     {
       "t": "text",
-      "v": "The cost of a path is defined as the bitwise XOR of all the values in the cells along that path, including the start and end cells."
+      "v": "• \"update ui c\": Change the character at node ui to c. Formally, update s[ui] = c."
     },
     {
       "t": "text",
-      "v": "Return the minimum possible XOR value among all valid paths from (0, 0) to (m - 1, n - 1)."
+      "v": "• \"query ui vi\": Determine whether the string formed by the characters on the unique path from ui to vi (inclusive) can be rearranged into a palindrome."
+    },
+    {
+      "t": "text",
+      "v": "Return a boolean array answer, where answer[j] is true if the j^th query of type \"query ui vi\"​​​​​​​ can be rearranged into a palindrome, and false otherwise."
     },
     {
       "t": "text",
@@ -37,11 +45,11 @@
     },
     {
       "t": "text",
-      "v": "Input: grid = [[1,2],[3,4]]"
+      "v": "Input: n = 3, edges = [[0,1],[1,2]], s = \"aac\", queries = [\"query 0 2\",\"update 1 b\",\"query 0 2\"]"
     },
     {
       "t": "text",
-      "v": "Output: 6"
+      "v": "Output: [true,false]"
     },
     {
       "t": "text",
@@ -49,19 +57,19 @@
     },
     {
       "t": "text",
-      "v": "There are two valid paths:"
+      "v": "• \"query 0 2\": Path 0 → 1 → 2 gives \"aac\", which can be rearranged to form \"aca\", a palindrome. Thus, answer[0] = true."
     },
     {
       "t": "text",
-      "v": "• (0, 0) → (0, 1) → (1, 1) with XOR: 1 XOR 2 XOR 4 = 7"
+      "v": "• \"update 1 b\": Update node 1 to 'b', now s = \"abc\"."
     },
     {
       "t": "text",
-      "v": "• (0, 0) → (1, 0) → (1, 1) with XOR: 1 XOR 3 XOR 4 = 6"
+      "v": "• \"query 0 2\": Path characters are \"abc\", which cannot be rearranged to form a palindrome. Thus, answer[1] = false."
     },
     {
       "t": "text",
-      "v": "The minimum XOR value among all valid paths is 6."
+      "v": "Thus, answer = [true, false]."
     },
     {
       "t": "text",
@@ -69,43 +77,11 @@
     },
     {
       "t": "text",
-      "v": "Input: grid = [[6,7],[5,8]]"
+      "v": "Input: n = 4, edges = [[0,1],[0,2],[0,3]], s = \"abca\", queries = [\"query 1 2\",\"update 0 b\",\"query 2 3\",\"update 3 a\",\"query 1 3\"]"
     },
     {
       "t": "text",
-      "v": "Output: 9"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "There are two valid paths:"
-    },
-    {
-      "t": "text",
-      "v": "• (0, 0) → (0, 1) → (1, 1) with XOR: 6 XOR 7 XOR 8 = 9"
-    },
-    {
-      "t": "text",
-      "v": "• (0, 0) → (1, 0) → (1, 1) with XOR: 6 XOR 5 XOR 8 = 11"
-    },
-    {
-      "t": "text",
-      "v": "The minimum XOR value among all valid paths is 9."
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "text",
-      "v": "Input: grid = [[2,7,5]]"
-    },
-    {
-      "t": "text",
-      "v": "Output: 0"
+      "v": "Output: [false,false,true]"
     },
     {
       "t": "text",
@@ -113,15 +89,27 @@
     },
     {
       "t": "text",
-      "v": "There is only one valid path:"
+      "v": "• \"query 1 2\": Path 1 → 0 → 2 gives \"bac\", which cannot be rearranged to form a palindrome. Thus, answer[0] = false."
     },
     {
       "t": "text",
-      "v": "• (0, 0) → (0, 1) → (0, 2) with XOR: 2 XOR 7 XOR 5 = 0"
+      "v": "• \"update 0 b\": Update node 0 to 'b', now s = \"bbca\"."
     },
     {
       "t": "text",
-      "v": "The XOR value of this path is 0, which is the minimum possible."
+      "v": "• \"query 2 3\": Path 2 → 0 → 3 gives \"cba\", which cannot be rearranged to form a palindrome. Thus, answer[1] = false."
+    },
+    {
+      "t": "text",
+      "v": "• \"update 3 a\": Update node 3 to 'a', s = \"bbca\"."
+    },
+    {
+      "t": "text",
+      "v": "• \"query 1 3\": Path 1 → 0 → 3 gives \"bba\", which can be rearranged to form \"bab\", a palindrome. Thus, answer[2] = true."
+    },
+    {
+      "t": "text",
+      "v": "Thus, answer = [false, false, true]."
     },
     {
       "t": "text",
@@ -129,19 +117,47 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= m == grid.length <= 1000"
+      "v": "• 1 <= n == s.length <= 5 * 10^4"
     },
     {
       "t": "text",
-      "v": "• 1 <= n == grid[i].length <= 1000"
+      "v": "• edges.length == n - 1"
     },
     {
       "t": "text",
-      "v": "• m * n <= 1000"
+      "v": "• edges[i] = [ui, vi]"
     },
     {
       "t": "text",
-      "v": "• 0 <= grid[i][j] <= 1023​"
+      "v": "• 0 <= ui, vi <= n - 1"
+    },
+    {
+      "t": "text",
+      "v": "• s consists of lowercase English letters."
+    },
+    {
+      "t": "text",
+      "v": "• The input is generated such that edges represents a valid tree."
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= queries.length <= 5 * 10^4​​​​​​​"
+    },
+    {
+      "t": "text",
+      "v": "• queries[i] = \"update ui c\" or"
+    },
+    {
+      "t": "text",
+      "v": "• queries[i] = \"query ui vi\""
+    },
+    {
+      "t": "text",
+      "v": "• 0 <= ui, vi <= n - 1"
+    },
+    {
+      "t": "text",
+      "v": "• c is a lowercase English letter."
     }
   ]
 }
