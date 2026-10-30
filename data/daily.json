@@ -1,43 +1,27 @@
 {
-  "date": "2026-10-29",
-  "id": "3841",
-  "title": "Palindromic Path Queries in a Tree",
-  "difficulty": "Hard",
-  "link": "https://leetcode.com/problems/palindromic-path-queries-in-a-tree/",
+  "date": "2026-10-30",
+  "id": "3970",
+  "title": "Shortest Path With At Most K Consecutive Identical Characters",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/shortest-path-with-at-most-k-consecutive-identical-characters/",
   "topics": [
-    "Array",
     "String",
-    "Divide and Conquer",
-    "Bit Manipulation",
-    "Tree",
-    "Depth-First Search",
-    "Binary Indexed Tree",
-    "Segment Tree"
+    "Graph Theory",
+    "Heap (Priority Queue)",
+    "Shortest Path"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an undirected tree with n nodes labeled 0 to n - 1. This is represented by a 2D array edges of length n - 1, where edges[i] = [ui, vi] indicates an undirected edge between nodes ui and vi."
+      "v": "You are given an integer n representing the number of nodes in a directed weighted graph, numbered from 0 to n - 1. This is represented by a 2D integer array edges, where edges[i] = [ui, vi, wi] represents a directed edge from node ui to node vi with weight wi."
     },
     {
       "t": "text",
-      "v": "You are also given a string s of length n consisting of lowercase English letters, where s[i] represents the character assigned to node i."
+      "v": "You are also given a string labels of length n, where labels[i] is the character assigned to node i, and an integer k."
     },
     {
       "t": "text",
-      "v": "You are also given a string array queries, where each queries[i] is either:"
-    },
-    {
-      "t": "text",
-      "v": "• \"update ui c\": Change the character at node ui to c. Formally, update s[ui] = c."
-    },
-    {
-      "t": "text",
-      "v": "• \"query ui vi\": Determine whether the string formed by the characters on the unique path from ui to vi (inclusive) can be rearranged into a palindrome."
-    },
-    {
-      "t": "text",
-      "v": "Return a boolean array answer, where answer[j] is true if the j^th query of type \"query ui vi\"​​​​​​​ can be rearranged into a palindrome, and false otherwise."
+      "v": "Return the minimum total edge weight of a path from node 0 to node n - 1 such that the concatenation of the labels of the nodes along the path contains at most k consecutive identical characters. If no valid path exists, return -1."
     },
     {
       "t": "text",
@@ -45,11 +29,11 @@
     },
     {
       "t": "text",
-      "v": "Input: n = 3, edges = [[0,1],[1,2]], s = \"aac\", queries = [\"query 0 2\",\"update 1 b\",\"query 0 2\"]"
+      "v": "Input: n = 3, edges = [[0,1,1],[1,2,1],[0,2,3]], labels = \"aab\", k = 1"
     },
     {
       "t": "text",
-      "v": "Output: [true,false]"
+      "v": "Output: 3"
     },
     {
       "t": "text",
@@ -57,19 +41,15 @@
     },
     {
       "t": "text",
-      "v": "• \"query 0 2\": Path 0 → 1 → 2 gives \"aac\", which can be rearranged to form \"aca\", a palindrome. Thus, answer[0] = true."
+      "v": "The optimal valid path from node 0 to node 2 is as follows:"
     },
     {
       "t": "text",
-      "v": "• \"update 1 b\": Update node 1 to 'b', now s = \"abc\"."
+      "v": "• Use edges[2] = [0, 2, 3] to reach node 2 with a weight wi = 3."
     },
     {
       "t": "text",
-      "v": "• \"query 0 2\": Path characters are \"abc\", which cannot be rearranged to form a palindrome. Thus, answer[1] = false."
-    },
-    {
-      "t": "text",
-      "v": "Thus, answer = [true, false]."
+      "v": "The corresponding concatenation of labels is \"ab\", which satisfies at most k = 1 consecutive identical characters. Thus, the answer is 3."
     },
     {
       "t": "text",
@@ -77,11 +57,11 @@
     },
     {
       "t": "text",
-      "v": "Input: n = 4, edges = [[0,1],[0,2],[0,3]], s = \"abca\", queries = [\"query 1 2\",\"update 0 b\",\"query 2 3\",\"update 3 a\",\"query 1 3\"]"
+      "v": "Input: n = 3, edges = [[0,1,1],[1,2,1],[0,2,3]], labels = \"aab\", k = 2"
     },
     {
       "t": "text",
-      "v": "Output: [false,false,true]"
+      "v": "Output: 2"
     },
     {
       "t": "text",
@@ -89,27 +69,39 @@
     },
     {
       "t": "text",
-      "v": "• \"query 1 2\": Path 1 → 0 → 2 gives \"bac\", which cannot be rearranged to form a palindrome. Thus, answer[0] = false."
+      "v": "The optimal valid path from node 0 to node 2 is as follows:"
     },
     {
       "t": "text",
-      "v": "• \"update 0 b\": Update node 0 to 'b', now s = \"bbca\"."
+      "v": "• Use edges[0] = [0, 1, 1] to reach node 1 with weight wi = 1."
     },
     {
       "t": "text",
-      "v": "• \"query 2 3\": Path 2 → 0 → 3 gives \"cba\", which cannot be rearranged to form a palindrome. Thus, answer[1] = false."
+      "v": "• Use edges[1] = [1, 2, 1] to reach node 2 with weight wi = 1."
     },
     {
       "t": "text",
-      "v": "• \"update 3 a\": Update node 3 to 'a', s = \"bbca\"."
+      "v": "The corresponding concatenation of labels is \"aab\", which satisfies at most k = 2 consecutive identical characters. Thus, the answer is 2."
     },
     {
       "t": "text",
-      "v": "• \"query 1 3\": Path 1 → 0 → 3 gives \"bba\", which can be rearranged to form \"bab\", a palindrome. Thus, answer[2] = true."
+      "v": "Example 3:"
     },
     {
       "t": "text",
-      "v": "Thus, answer = [false, false, true]."
+      "v": "Input: n = 3, edges = [[0,1,1],[1,2,1]], labels = \"aaa\", k = 2"
+    },
+    {
+      "t": "text",
+      "v": "Output: -1"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "There is no valid path from node 0 to node 2 that satisfies at most k = 2 consecutive identical characters. Thus, the answer is -1."
     },
     {
       "t": "text",
@@ -117,39 +109,15 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= n == s.length <= 5 * 10^4"
+      "v": "• 1 <= n == labels.length <= 5 * 10^4"
     },
     {
       "t": "text",
-      "v": "• edges.length == n - 1"
+      "v": "• 0 <= edges.length <= 5 * 10^4"
     },
     {
       "t": "text",
-      "v": "• edges[i] = [ui, vi]"
-    },
-    {
-      "t": "text",
-      "v": "• 0 <= ui, vi <= n - 1"
-    },
-    {
-      "t": "text",
-      "v": "• s consists of lowercase English letters."
-    },
-    {
-      "t": "text",
-      "v": "• The input is generated such that edges represents a valid tree."
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= queries.length <= 5 * 10^4​​​​​​​"
-    },
-    {
-      "t": "text",
-      "v": "• queries[i] = \"update ui c\" or"
-    },
-    {
-      "t": "text",
-      "v": "• queries[i] = \"query ui vi\""
+      "v": "• edges[i] == [ui, vi, wi]"
     },
     {
       "t": "text",
@@ -157,7 +125,19 @@
     },
     {
       "t": "text",
-      "v": "• c is a lowercase English letter."
+      "v": "• ui != vi"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= wi <= 10^4"
+    },
+    {
+      "t": "text",
+      "v": "• labels consists of lowercase English letters"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= k <= 50"
     }
   ]
 }
