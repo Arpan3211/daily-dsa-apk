@@ -1,27 +1,54 @@
 {
-  "date": "2026-10-30",
-  "id": "3970",
-  "title": "Shortest Path With At Most K Consecutive Identical Characters",
+  "date": "2026-10-31",
+  "id": "3665",
+  "title": "Twisted Mirror Path Count",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/shortest-path-with-at-most-k-consecutive-identical-characters/",
+  "link": "https://leetcode.com/problems/twisted-mirror-path-count/",
   "topics": [
-    "String",
-    "Graph Theory",
-    "Heap (Priority Queue)",
-    "Shortest Path"
+    "Array",
+    "Dynamic Programming",
+    "Matrix"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an integer n representing the number of nodes in a directed weighted graph, numbered from 0 to n - 1. This is represented by a 2D integer array edges, where edges[i] = [ui, vi, wi] represents a directed edge from node ui to node vi with weight wi."
+      "v": "Given an m x n binary grid grid where:"
     },
     {
       "t": "text",
-      "v": "You are also given a string labels of length n, where labels[i] is the character assigned to node i, and an integer k."
+      "v": "• grid[i][j] == 0 represents an empty cell, and"
     },
     {
       "t": "text",
-      "v": "Return the minimum total edge weight of a path from node 0 to node n - 1 such that the concatenation of the labels of the nodes along the path contains at most k consecutive identical characters. If no valid path exists, return -1."
+      "v": "• grid[i][j] == 1 represents a mirror."
+    },
+    {
+      "t": "text",
+      "v": "A robot starts at the top-left corner of the grid (0, 0) and wants to reach the bottom-right corner (m - 1, n - 1). It can move only right or down. If the robot attempts to move into a mirror cell, it is reflected before entering that cell:"
+    },
+    {
+      "t": "text",
+      "v": "• If it tries to move right into a mirror, it is turned down and moved into the cell directly below the mirror."
+    },
+    {
+      "t": "text",
+      "v": "• If it tries to move down into a mirror, it is turned right and moved into the cell directly to the right of the mirror."
+    },
+    {
+      "t": "text",
+      "v": "If this reflection would cause the robot to move outside the grid boundaries, the path is considered invalid and should not be counted."
+    },
+    {
+      "t": "text",
+      "v": "Return the number of unique valid paths from (0, 0) to (m - 1, n - 1)."
+    },
+    {
+      "t": "text",
+      "v": "Since the answer may be very large, return it modulo 10^9 + 7."
+    },
+    {
+      "t": "text",
+      "v": "Note: If a reflection moves the robot into a mirror cell, the robot is immediately reflected again based on the direction it used to enter that mirror: if it entered while moving right, it will be turned down; if it entered while moving down, it will be turned right. This process will continue until either the last cell is reached, the robot moves out of bounds or the robot moves to a non-mirror cell."
     },
     {
       "t": "text",
@@ -29,11 +56,11 @@
     },
     {
       "t": "text",
-      "v": "Input: n = 3, edges = [[0,1,1],[1,2,1],[0,2,3]], labels = \"aab\", k = 1"
+      "v": "Input: grid = [[0,1,0],[0,0,1],[1,0,0]]"
     },
     {
       "t": "text",
-      "v": "Output: 3"
+      "v": "Output: 5"
     },
     {
       "t": "text",
@@ -41,15 +68,15 @@
     },
     {
       "t": "text",
-      "v": "The optimal valid path from node 0 to node 2 is as follows:"
+      "v": "Number Full Path 1 (0, 0) → (0, 1) [M] → (1, 1) → (1, 2) [M] → (2, 2) 2 (0, 0) → (0, 1) [M] → (1, 1) → (2, 1) → (2, 2) 3 (0, 0) → (1, 0) → (1, 1) → (1, 2) [M] → (2, 2) 4 (0, 0) → (1, 0) → (1, 1) → (2, 1) → (2, 2) 5 (0, 0) → (1, 0) → (2, 0) [M] → (2, 1) → (2, 2)"
     },
     {
       "t": "text",
-      "v": "• Use edges[2] = [0, 2, 3] to reach node 2 with a weight wi = 3."
+      "v": "•"
     },
     {
       "t": "text",
-      "v": "The corresponding concatenation of labels is \"ab\", which satisfies at most k = 1 consecutive identical characters. Thus, the answer is 3."
+      "v": "[M] indicates the robot attempted to enter a mirror cell and instead reflected."
     },
     {
       "t": "text",
@@ -57,7 +84,7 @@
     },
     {
       "t": "text",
-      "v": "Input: n = 3, edges = [[0,1,1],[1,2,1],[0,2,3]], labels = \"aab\", k = 2"
+      "v": "Input: grid = [[0,0],[0,0]]"
     },
     {
       "t": "text",
@@ -69,19 +96,7 @@
     },
     {
       "t": "text",
-      "v": "The optimal valid path from node 0 to node 2 is as follows:"
-    },
-    {
-      "t": "text",
-      "v": "• Use edges[0] = [0, 1, 1] to reach node 1 with weight wi = 1."
-    },
-    {
-      "t": "text",
-      "v": "• Use edges[1] = [1, 2, 1] to reach node 2 with weight wi = 1."
-    },
-    {
-      "t": "text",
-      "v": "The corresponding concatenation of labels is \"aab\", which satisfies at most k = 2 consecutive identical characters. Thus, the answer is 2."
+      "v": "Number Full Path 1 (0, 0) → (0, 1) → (1, 1) 2 (0, 0) → (1, 0) → (1, 1)"
     },
     {
       "t": "text",
@@ -89,11 +104,11 @@
     },
     {
       "t": "text",
-      "v": "Input: n = 3, edges = [[0,1,1],[1,2,1]], labels = \"aaa\", k = 2"
+      "v": "Input: grid = [[0,1,1],[1,1,0]]"
     },
     {
       "t": "text",
-      "v": "Output: -1"
+      "v": "Output: 1"
     },
     {
       "t": "text",
@@ -101,7 +116,7 @@
     },
     {
       "t": "text",
-      "v": "There is no valid path from node 0 to node 2 that satisfies at most k = 2 consecutive identical characters. Thus, the answer is -1."
+      "v": "Number Full Path 1 (0, 0) → (0, 1) [M] → (1, 1) [M] → (1, 2) (0, 0) → (1, 0) [M] → (1, 1) [M] → (2, 1) goes out of bounds, so it is invalid."
     },
     {
       "t": "text",
@@ -109,35 +124,23 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= n == labels.length <= 5 * 10^4"
+      "v": "• m == grid.length"
     },
     {
       "t": "text",
-      "v": "• 0 <= edges.length <= 5 * 10^4"
+      "v": "• n == grid[i].length"
     },
     {
       "t": "text",
-      "v": "• edges[i] == [ui, vi, wi]"
+      "v": "• 2 <= m, n <= 500"
     },
     {
       "t": "text",
-      "v": "• 0 <= ui, vi <= n - 1"
+      "v": "• grid[i][j] is either 0 or 1."
     },
     {
       "t": "text",
-      "v": "• ui != vi"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= wi <= 10^4"
-    },
-    {
-      "t": "text",
-      "v": "• labels consists of lowercase English letters"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= k <= 50"
+      "v": "• grid[0][0] == grid[m - 1][n - 1] == 0"
     }
   ]
 }
