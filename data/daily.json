@@ -1,12 +1,13 @@
 {
-  "date": "2026-11-01",
-  "id": "453",
-  "title": "Minimum Moves to Equal Array Elements",
+  "date": "2026-11-02",
+  "id": "462",
+  "title": "Minimum Moves to Equal Array Elements II",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/",
+  "link": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/",
   "topics": [
     "Array",
-    "Math"
+    "Math",
+    "Sorting"
   ],
   "blocks": [
     {
@@ -15,7 +16,11 @@
     },
     {
       "t": "text",
-      "v": "In one move, you can increment n - 1 elements of the array by 1."
+      "v": "In one move, you can increment or decrement an element of the array by 1."
+    },
+    {
+      "t": "text",
+      "v": "Test cases are designed so that the answer will fit in a 32-bit integer."
     },
     {
       "t": "text",
@@ -23,7 +28,7 @@
     },
     {
       "t": "code",
-      "v": "Input: nums = [1,2,3]\nOutput: 3\nExplanation: Only three moves are needed (remember each move increments two elements):\n[1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]"
+      "v": "Input: nums = [1,2,3]\nOutput: 2\nExplanation:\nOnly two moves are needed (remember each move increments or decrements one element):\n[1,2,3]  =>  [2,2,3]  =>  [2,2,2]"
     },
     {
       "t": "text",
@@ -31,7 +36,7 @@
     },
     {
       "t": "code",
-      "v": "Input: nums = [1,1,1]\nOutput: 0"
+      "v": "Input: nums = [1,10,2,9]\nOutput: 16"
     },
     {
       "t": "text",
@@ -48,10 +53,6 @@
     {
       "t": "text",
       "v": "• -10^9 <= nums[i] <= 10^9"
-    },
-    {
-      "t": "text",
-      "v": "• The answer is guaranteed to fit in a 32-bit integer."
     }
   ]
 }
