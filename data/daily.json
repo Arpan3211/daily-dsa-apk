@@ -1,42 +1,93 @@
 {
-  "date": "2026-11-02",
-  "id": "462",
-  "title": "Minimum Moves to Equal Array Elements II",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/",
+  "date": "2026-11-03",
+  "id": "3736",
+  "title": "Minimum Moves to Equal Array Elements III",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-iii/",
   "topics": [
     "Array",
-    "Math",
-    "Sorting"
+    "Math"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Given an integer array nums of size n, return the minimum number of moves required to make all array elements equal."
+      "v": "You are given an integer array nums."
     },
     {
       "t": "text",
-      "v": "In one move, you can increment or decrement an element of the array by 1."
+      "v": "In one move, you may increase the value of any single element nums[i] by 1."
     },
     {
       "t": "text",
-      "v": "Test cases are designed so that the answer will fit in a 32-bit integer."
+      "v": "Return the minimum total number of moves required so that all elements in nums become equal."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "code",
-      "v": "Input: nums = [1,2,3]\nOutput: 2\nExplanation:\nOnly two moves are needed (remember each move increments or decrements one element):\n[1,2,3]  =>  [2,2,3]  =>  [2,2,2]"
+      "t": "text",
+      "v": "Input: nums = [2,1,3]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 3"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "To make all elements equal:"
+    },
+    {
+      "t": "text",
+      "v": "• Increase nums[0] = 2 by 1 to make it 3."
+    },
+    {
+      "t": "text",
+      "v": "• Increase nums[1] = 1 by 1 to make it 2."
+    },
+    {
+      "t": "text",
+      "v": "• Increase nums[1] = 2 by 1 to make it 3."
+    },
+    {
+      "t": "text",
+      "v": "Now, all elements of nums are equal to 3. The minimum total moves is 3."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "code",
-      "v": "Input: nums = [1,10,2,9]\nOutput: 16"
+      "t": "text",
+      "v": "Input: nums = [4,4,5]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 2"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "To make all elements equal:"
+    },
+    {
+      "t": "text",
+      "v": "• Increase nums[0] = 4 by 1 to make it 5."
+    },
+    {
+      "t": "text",
+      "v": "• Increase nums[1] = 4 by 1 to make it 5."
+    },
+    {
+      "t": "text",
+      "v": "Now, all elements of nums are equal to 5. The minimum total moves is 2."
     },
     {
       "t": "text",
@@ -44,15 +95,11 @@
     },
     {
       "t": "text",
-      "v": "• n == nums.length"
+      "v": "• 1 <= nums.length <= 100"
     },
     {
       "t": "text",
-      "v": "• 1 <= nums.length <= 10^5"
-    },
-    {
-      "t": "text",
-      "v": "• -10^9 <= nums[i] <= 10^9"
+      "v": "• 1 <= nums[i] <= 100"
     }
   ]
 }
