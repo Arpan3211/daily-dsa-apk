@@ -1,46 +1,92 @@
 {
-  "date": "2026-11-20",
-  "id": "3041",
-  "title": "Maximize Consecutive Elements in an Array After Modification",
-  "difficulty": "Hard",
-  "link": "https://leetcode.com/problems/maximize-consecutive-elements-in-an-array-after-modification/",
+  "date": "2026-11-21",
+  "id": "3331",
+  "title": "Find Subtree Sizes After Changes",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/find-subtree-sizes-after-changes/",
   "topics": [
     "Array",
-    "Dynamic Programming",
-    "Sorting"
+    "Hash Table",
+    "String",
+    "Tree",
+    "Depth-First Search"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given a 0-indexed array nums consisting of positive integers."
+      "v": "You are given a tree rooted at node 0 that consists of n nodes numbered from 0 to n - 1. The tree is represented by an array parent of size n, where parent[i] is the parent of node i. Since node 0 is the root, parent[0] == -1."
     },
     {
       "t": "text",
-      "v": "Initially, you can increase the value of any element in the array by at most 1."
+      "v": "You are also given a string s of length n, where s[i] is the character assigned to node i."
     },
     {
       "t": "text",
-      "v": "After that, you need to select one or more elements from the final array such that those elements are consecutive when sorted in increasing order. For example, the elements [3, 4, 5] are consecutive while [3, 4, 6] and [1, 1, 2, 3] are not."
+      "v": "We make the following changes on the tree one time simultaneously for all nodes x from 1 to n - 1:"
     },
     {
       "t": "text",
-      "v": "Return the maximum number of elements that you can select."
+      "v": "• Find the closest node y to node x such that y is an ancestor of x, and s[x] == s[y]."
+    },
+    {
+      "t": "text",
+      "v": "• If node y does not exist, do nothing."
+    },
+    {
+      "t": "text",
+      "v": "• Otherwise, remove the edge between x and its current parent and make node y the new parent of x by adding an edge between them."
+    },
+    {
+      "t": "text",
+      "v": "Return an array answer of size n where answer[i] is the size of the subtree rooted at node i in the final tree."
     },
     {
       "t": "text",
       "v": "Example 1:"
     },
     {
-      "t": "code",
-      "v": "Input: nums = [2,1,5,1,1]\nOutput: 3\nExplanation: We can increase the elements at indices 0 and 3. The resulting array is nums = [3,1,5,2,1].\nWe select the elements [3,1,5,2,1] and we sort them to obtain [1,2,3], which are consecutive.\nIt can be shown that we cannot select more than 3 consecutive elements."
+      "t": "text",
+      "v": "Input: parent = [-1,0,0,1,1,1], s = \"abaabc\""
+    },
+    {
+      "t": "text",
+      "v": "Output: [6,3,1,1,1,1]"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "The parent of node 3 will change from node 1 to node 0."
     },
     {
       "t": "text",
       "v": "Example 2:"
     },
     {
-      "t": "code",
-      "v": "Input: nums = [1,4,7,10]\nOutput: 1\nExplanation: The maximum consecutive elements that we can select is 1."
+      "t": "text",
+      "v": "Input: parent = [-1,0,4,0,1], s = \"abbba\""
+    },
+    {
+      "t": "text",
+      "v": "Output: [5,2,1,1,1]"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "The following changes will happen at the same time:"
+    },
+    {
+      "t": "text",
+      "v": "• The parent of node 4 will change from node 1 to node 0."
+    },
+    {
+      "t": "text",
+      "v": "• The parent of node 2 will change from node 4 to node 1."
     },
     {
       "t": "text",
@@ -48,11 +94,27 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= nums.length <= 10^5"
+      "v": "• n == parent.length == s.length"
     },
     {
       "t": "text",
-      "v": "• 1 <= nums[i] <= 10^6"
+      "v": "• 1 <= n <= 10^5"
+    },
+    {
+      "t": "text",
+      "v": "• 0 <= parent[i] <= n - 1 for all i >= 1."
+    },
+    {
+      "t": "text",
+      "v": "• parent[0] == -1"
+    },
+    {
+      "t": "text",
+      "v": "• parent represents a valid tree."
+    },
+    {
+      "t": "text",
+      "v": "• s consists only of lowercase English letters."
     }
   ]
 }
