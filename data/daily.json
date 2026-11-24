@@ -1,48 +1,92 @@
 {
-  "date": "2026-11-23",
-  "id": "1352",
-  "title": "Product of the Last K Numbers",
-  "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/product-of-the-last-k-numbers/",
+  "date": "2026-11-24",
+  "id": "3411",
+  "title": "Maximum Subarray With Equal Products",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/maximum-subarray-with-equal-products/",
   "topics": [
     "Array",
     "Math",
-    "Design",
-    "Data Stream",
-    "Prefix Sum"
+    "Sliding Window",
+    "Enumeration",
+    "Number Theory"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Design an algorithm that accepts a stream of integers and retrieves the product of the last k integers of the stream."
+      "v": "You are given an array of positive integers nums."
     },
     {
       "t": "text",
-      "v": "Implement the ProductOfNumbers class:"
+      "v": "An array arr is called product equivalent if prod(arr) == lcm(arr) * gcd(arr), where:"
     },
     {
       "t": "text",
-      "v": "• ProductOfNumbers() Initializes the object with an empty stream."
+      "v": "• prod(arr) is the product of all elements of arr."
     },
     {
       "t": "text",
-      "v": "• void add(int num) Appends the integer num to the stream."
+      "v": "• gcd(arr) is the GCD of all elements of arr."
     },
     {
       "t": "text",
-      "v": "• int getProduct(int k) Returns the product of the last k numbers in the current list. You can assume that always the current list has at least k numbers."
+      "v": "• lcm(arr) is the LCM of all elements of arr."
     },
     {
       "t": "text",
-      "v": "The test cases are generated so that, at any time, the product of any contiguous sequence of numbers will fit into a single 32-bit integer without overflowing."
+      "v": "Return the length of the longest product equivalent subarray of nums."
     },
     {
       "t": "text",
-      "v": "Example:"
+      "v": "Example 1:"
     },
     {
-      "t": "code",
-      "v": "Input\n[\"ProductOfNumbers\",\"add\",\"add\",\"add\",\"add\",\"add\",\"getProduct\",\"getProduct\",\"getProduct\",\"add\",\"getProduct\"]\n[[],[3],[0],[2],[5],[4],[2],[3],[4],[8],[2]]\n\nOutput\n[null,null,null,null,null,null,20,40,0,null,32]\n\nExplanation\nProductOfNumbers productOfNumbers = new ProductOfNumbers();\nproductOfNumbers.add(3);        // [3]\nproductOfNumbers.add(0);        // [3,0]\nproductOfNumbers.add(2);        // [3,0,2]\nproductOfNumbers.add(5);        // [3,0,2,5]\nproductOfNumbers.add(4);        // [3,0,2,5,4]\nproductOfNumbers.getProduct(2); // return 20. The product of the last 2 numbers is 5 * 4 = 20\nproductOfNumbers.getProduct(3); // return 40. The product of the last 3 numbers is 2 * 5 * 4 = 40\nproductOfNumbers.getProduct(4); // return 0. The product of the last 4 numbers is 0 * 2 * 5 * 4 = 0\nproductOfNumbers.add(8);        // [3,0,2,5,4,8]\nproductOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32 "
+      "t": "text",
+      "v": "Input: nums = [1,2,1,2,1,1,1]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 5"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "The longest product equivalent subarray is [1, 2, 1, 1, 1], where prod([1, 2, 1, 1, 1]) = 2, gcd([1, 2, 1, 1, 1]) = 1, and lcm([1, 2, 1, 1, 1]) = 2."
+    },
+    {
+      "t": "text",
+      "v": "Example 2:"
+    },
+    {
+      "t": "text",
+      "v": "Input: nums = [2,3,4,5,6]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 3"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "The longest product equivalent subarray is [3, 4, 5]."
+    },
+    {
+      "t": "text",
+      "v": "Example 3:"
+    },
+    {
+      "t": "text",
+      "v": "Input: nums = [1,2,3,1,4,5,1]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 5"
     },
     {
       "t": "text",
@@ -50,23 +94,11 @@
     },
     {
       "t": "text",
-      "v": "• 0 <= num <= 100"
+      "v": "• 2 <= nums.length <= 100"
     },
     {
       "t": "text",
-      "v": "• 1 <= k <= 4 * 10^4"
-    },
-    {
-      "t": "text",
-      "v": "• At most 4 * 10^4 calls will be made to add and getProduct."
-    },
-    {
-      "t": "text",
-      "v": "• The product of the stream at any point in time will fit in a 32-bit integer."
-    },
-    {
-      "t": "text",
-      "v": "Follow-up: Can you implement both GetProduct and Add to work in O(1) time complexity instead of O(k) time complexity?"
+      "v": "• 1 <= nums[i] <= 10"
     }
   ]
 }
