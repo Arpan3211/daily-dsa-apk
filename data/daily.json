@@ -1,40 +1,33 @@
 {
-  "date": "2026-11-24",
-  "id": "3411",
-  "title": "Maximum Subarray With Equal Products",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/maximum-subarray-with-equal-products/",
+  "date": "2026-11-25",
+  "id": "3934",
+  "title": "Smallest Unique Subarray",
+  "difficulty": "Hard",
+  "link": "https://leetcode.com/problems/smallest-unique-subarray/",
   "topics": [
     "Array",
-    "Math",
-    "Sliding Window",
-    "Enumeration",
-    "Number Theory"
+    "Hash Table",
+    "Binary Search",
+    "Rolling Hash",
+    "Suffix Array",
+    "Hash Function"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an array of positive integers nums."
+      "v": "You are given an integer array nums."
     },
     {
       "t": "text",
-      "v": "An array arr is called product equivalent if prod(arr) == lcm(arr) * gcd(arr), where:"
+      "v": "Find the minimum length of a subarray that is not identical to any other subarray in nums."
     },
     {
       "t": "text",
-      "v": "• prod(arr) is the product of all elements of arr."
+      "v": "Return an integer denoting the minimum possible length of such a subarray."
     },
     {
       "t": "text",
-      "v": "• gcd(arr) is the GCD of all elements of arr."
-    },
-    {
-      "t": "text",
-      "v": "• lcm(arr) is the LCM of all elements of arr."
-    },
-    {
-      "t": "text",
-      "v": "Return the length of the longest product equivalent subarray of nums."
+      "v": "Two subarrays are considered identical if they have the same length and the same elements in corresponding positions."
     },
     {
       "t": "text",
@@ -42,27 +35,7 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [1,2,1,2,1,1,1]"
-    },
-    {
-      "t": "text",
-      "v": "Output: 5"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "The longest product equivalent subarray is [1, 2, 1, 1, 1], where prod([1, 2, 1, 1, 1]) = 2, gcd([1, 2, 1, 1, 1]) = 1, and lcm([1, 2, 1, 1, 1]) = 2."
-    },
-    {
-      "t": "text",
-      "v": "Example 2:"
-    },
-    {
-      "t": "text",
-      "v": "Input: nums = [2,3,4,5,6]"
+      "v": "Input: nums = [3,3,3]"
     },
     {
       "t": "text",
@@ -74,7 +47,55 @@
     },
     {
       "t": "text",
-      "v": "The longest product equivalent subarray is [3, 4, 5]."
+      "v": "• Subarrays of length 1: [3] → appears 3 times"
+    },
+    {
+      "t": "text",
+      "v": "• Subarrays of length 2: [3, 3] → appears 2 times"
+    },
+    {
+      "t": "text",
+      "v": "• Subarrays of length 3: [3, 3, 3] → appears once"
+    },
+    {
+      "t": "text",
+      "v": "The subarray [3, 3, 3] is unique, so the smallest unique subarray length is 3."
+    },
+    {
+      "t": "text",
+      "v": "Example 2:"
+    },
+    {
+      "t": "text",
+      "v": "Input: nums = [2,1,2,3,3]"
+    },
+    {
+      "t": "text",
+      "v": "Output: 1"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "Subarrays of length 1:"
+    },
+    {
+      "t": "text",
+      "v": "• [2] → appears 2 times"
+    },
+    {
+      "t": "text",
+      "v": "• [1] → appears once"
+    },
+    {
+      "t": "text",
+      "v": "• [3] → appears 2 times"
+    },
+    {
+      "t": "text",
+      "v": "The subarray [1] is unique, so the smallest unique subarray length is 1."
     },
     {
       "t": "text",
@@ -82,11 +103,51 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [1,2,3,1,4,5,1]"
+      "v": "Input: nums = [1,1,2,2,1]"
     },
     {
       "t": "text",
-      "v": "Output: 5"
+      "v": "Output: 2"
+    },
+    {
+      "t": "text",
+      "v": "Explanation:"
+    },
+    {
+      "t": "text",
+      "v": "Subarrays of length 1:"
+    },
+    {
+      "t": "text",
+      "v": "• [1] → appears 3 times"
+    },
+    {
+      "t": "text",
+      "v": "• [2] → appears 2 times"
+    },
+    {
+      "t": "text",
+      "v": "Subarrays of length 2:"
+    },
+    {
+      "t": "text",
+      "v": "• [1, 1] → appears once"
+    },
+    {
+      "t": "text",
+      "v": "• [1, 2] → appears once"
+    },
+    {
+      "t": "text",
+      "v": "• [2, 2] → appears once"
+    },
+    {
+      "t": "text",
+      "v": "• [2, 1] → appears once"
+    },
+    {
+      "t": "text",
+      "v": "There is at least one subarray of length 2 that is unique, so the smallest unique subarray length is 2."
     },
     {
       "t": "text",
@@ -94,11 +155,11 @@
     },
     {
       "t": "text",
-      "v": "• 2 <= nums.length <= 100"
+      "v": "• 1 <= nums.length <= 10^5"
     },
     {
       "t": "text",
-      "v": "• 1 <= nums[i] <= 10"
+      "v": "• 1 <= nums[i] <= 10^5"
     }
   ]
 }
