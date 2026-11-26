@@ -1,33 +1,33 @@
 {
-  "date": "2026-11-25",
-  "id": "3934",
-  "title": "Smallest Unique Subarray",
-  "difficulty": "Hard",
-  "link": "https://leetcode.com/problems/smallest-unique-subarray/",
+  "date": "2026-11-26",
+  "id": "3360",
+  "title": "Stone Removal Game",
+  "difficulty": "Easy",
+  "link": "https://leetcode.com/problems/stone-removal-game/",
   "topics": [
-    "Array",
-    "Hash Table",
-    "Binary Search",
-    "Rolling Hash",
-    "Suffix Array",
-    "Hash Function"
+    "Math",
+    "Simulation"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "You are given an integer array nums."
+      "v": "Alice and Bob are playing a game where they take turns removing stones from a pile, with Alice going first."
     },
     {
       "t": "text",
-      "v": "Find the minimum length of a subarray that is not identical to any other subarray in nums."
+      "v": "• Alice starts by removing exactly 10 stones on her first turn."
     },
     {
       "t": "text",
-      "v": "Return an integer denoting the minimum possible length of such a subarray."
+      "v": "• For each subsequent turn, each player removes exactly 1 fewer stone than the previous opponent."
     },
     {
       "t": "text",
-      "v": "Two subarrays are considered identical if they have the same length and the same elements in corresponding positions."
+      "v": "The player who cannot make a move loses the game."
+    },
+    {
+      "t": "text",
+      "v": "Given a positive integer n, return true if Alice wins the game and false otherwise."
     },
     {
       "t": "text",
@@ -35,11 +35,11 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [3,3,3]"
+      "v": "Input: n = 12"
     },
     {
       "t": "text",
-      "v": "Output: 3"
+      "v": "Output: true"
     },
     {
       "t": "text",
@@ -47,19 +47,11 @@
     },
     {
       "t": "text",
-      "v": "• Subarrays of length 1: [3] → appears 3 times"
+      "v": "• Alice removes 10 stones on her first turn, leaving 2 stones for Bob."
     },
     {
       "t": "text",
-      "v": "• Subarrays of length 2: [3, 3] → appears 2 times"
-    },
-    {
-      "t": "text",
-      "v": "• Subarrays of length 3: [3, 3, 3] → appears once"
-    },
-    {
-      "t": "text",
-      "v": "The subarray [3, 3, 3] is unique, so the smallest unique subarray length is 3."
+      "v": "• Bob cannot remove 9 stones, so Alice wins."
     },
     {
       "t": "text",
@@ -67,47 +59,11 @@
     },
     {
       "t": "text",
-      "v": "Input: nums = [2,1,2,3,3]"
+      "v": "Input: n = 1"
     },
     {
       "t": "text",
-      "v": "Output: 1"
-    },
-    {
-      "t": "text",
-      "v": "Explanation:"
-    },
-    {
-      "t": "text",
-      "v": "Subarrays of length 1:"
-    },
-    {
-      "t": "text",
-      "v": "• [2] → appears 2 times"
-    },
-    {
-      "t": "text",
-      "v": "• [1] → appears once"
-    },
-    {
-      "t": "text",
-      "v": "• [3] → appears 2 times"
-    },
-    {
-      "t": "text",
-      "v": "The subarray [1] is unique, so the smallest unique subarray length is 1."
-    },
-    {
-      "t": "text",
-      "v": "Example 3:"
-    },
-    {
-      "t": "text",
-      "v": "Input: nums = [1,1,2,2,1]"
-    },
-    {
-      "t": "text",
-      "v": "Output: 2"
+      "v": "Output: false"
     },
     {
       "t": "text",
@@ -115,39 +71,7 @@
     },
     {
       "t": "text",
-      "v": "Subarrays of length 1:"
-    },
-    {
-      "t": "text",
-      "v": "• [1] → appears 3 times"
-    },
-    {
-      "t": "text",
-      "v": "• [2] → appears 2 times"
-    },
-    {
-      "t": "text",
-      "v": "Subarrays of length 2:"
-    },
-    {
-      "t": "text",
-      "v": "• [1, 1] → appears once"
-    },
-    {
-      "t": "text",
-      "v": "• [1, 2] → appears once"
-    },
-    {
-      "t": "text",
-      "v": "• [2, 2] → appears once"
-    },
-    {
-      "t": "text",
-      "v": "• [2, 1] → appears once"
-    },
-    {
-      "t": "text",
-      "v": "There is at least one subarray of length 2 that is unique, so the smallest unique subarray length is 2."
+      "v": "• Alice cannot remove 10 stones, so Alice loses."
     },
     {
       "t": "text",
@@ -155,11 +79,7 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= nums.length <= 10^5"
-    },
-    {
-      "t": "text",
-      "v": "• 1 <= nums[i] <= 10^5"
+      "v": "• 1 <= n <= 50"
     }
   ]
 }
