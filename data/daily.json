@@ -1,33 +1,42 @@
 {
-  "date": "2026-11-26",
-  "id": "3360",
-  "title": "Stone Removal Game",
-  "difficulty": "Easy",
-  "link": "https://leetcode.com/problems/stone-removal-game/",
+  "date": "2026-11-27",
+  "id": "3946",
+  "title": "Maximum Number of Items From Sale I",
+  "difficulty": "Medium",
+  "link": "https://leetcode.com/problems/maximum-number-of-items-from-sale-i/",
   "topics": [
-    "Math",
-    "Simulation"
+    "Array",
+    "Dynamic Programming",
+    "Greedy"
   ],
   "blocks": [
     {
       "t": "text",
-      "v": "Alice and Bob are playing a game where they take turns removing stones from a pile, with Alice going first."
+      "v": "You are given a 2D integer array items, where items[i] = [factori, pricei] represents the i^th item. You are also given an integer budget."
     },
     {
       "t": "text",
-      "v": "• Alice starts by removing exactly 10 stones on her first turn."
+      "v": "There are unlimited copies of each item available for purchase.You may buy any number of copies of any items such that the total cost of the purchased copies is at most budget."
     },
     {
       "t": "text",
-      "v": "• For each subsequent turn, each player removes exactly 1 fewer stone than the previous opponent."
+      "v": "After buying items, you may receive free copies according to the following rules:"
     },
     {
       "t": "text",
-      "v": "The player who cannot make a move loses the game."
+      "v": "• For each item i that you bought at least one copy of, you receive one free copy of every item j such that j != i and factori divides factorj."
     },
     {
       "t": "text",
-      "v": "Given a positive integer n, return true if Alice wins the game and false otherwise."
+      "v": "• Buying multiple copies of the same item i does not give additional free copies through item i."
+    },
+    {
+      "t": "text",
+      "v": "• The same item j can be received multiple times for free if it is received from purchases of different item types."
+    },
+    {
+      "t": "text",
+      "v": "Return the maximum total number of item copies you can obtain, including both purchased copies and free copies, while spending at most budget on purchased items."
     },
     {
       "t": "text",
@@ -35,11 +44,11 @@
     },
     {
       "t": "text",
-      "v": "Input: n = 12"
+      "v": "Input: items = [[6,2],[2,6],[3,4]], budget = 9"
     },
     {
       "t": "text",
-      "v": "Output: true"
+      "v": "Output: 4"
     },
     {
       "t": "text",
@@ -47,11 +56,15 @@
     },
     {
       "t": "text",
-      "v": "• Alice removes 10 stones on her first turn, leaving 2 stones for Bob."
+      "v": "• You can buy 2 copies of item 0 and 1 copy of item 2 for a total cost of 2 * 2 + 4 = 8, which is not greater than budget = 9."
     },
     {
       "t": "text",
-      "v": "• Bob cannot remove 9 stones, so Alice wins."
+      "v": "• Buying item 2 gives 1 free copy of item 0, because factor2 = 3 divides factor0 = 6."
+    },
+    {
+      "t": "text",
+      "v": "• You leave with 3 purchased copies and 1 free copy, for a total of 4 item copies."
     },
     {
       "t": "text",
@@ -59,11 +72,11 @@
     },
     {
       "t": "text",
-      "v": "Input: n = 1"
+      "v": "Input: items = [[2,4],[3,2],[4,1],[6,4],[12,4]], budget = 8"
     },
     {
       "t": "text",
-      "v": "Output: false"
+      "v": "Output: 10"
     },
     {
       "t": "text",
@@ -71,7 +84,23 @@
     },
     {
       "t": "text",
-      "v": "• Alice cannot remove 10 stones, so Alice loses."
+      "v": "• You can buy 1 copy of item 0, 1 copy of item 1, and 2 copies of item 2 for a total cost of 4 + 2 + 2 * 1 = 8."
+    },
+    {
+      "t": "text",
+      "v": "• Buying item 0 gives 1 free copy of items 2, 3, and 4."
+    },
+    {
+      "t": "text",
+      "v": "• Buying item 1 gives 1 free copy of items 3 and 4."
+    },
+    {
+      "t": "text",
+      "v": "• Buying item 2 gives 1 free copy of item 4."
+    },
+    {
+      "t": "text",
+      "v": "• Thus, you receive 6 free copies. You leave with 4 purchased copies and 6 free copies, for a total of 10 item copies."
     },
     {
       "t": "text",
@@ -79,7 +108,19 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= n <= 50"
+      "v": "• 1 <= items.length <= 1000"
+    },
+    {
+      "t": "text",
+      "v": "• items[i] = [factori, pricei]"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= factori, pricei <= 1500"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= budget <= 1500"
     }
   ]
 }
