@@ -1,13 +1,14 @@
 {
-  "date": "2026-11-27",
-  "id": "3946",
-  "title": "Maximum Number of Items From Sale I",
+  "date": "2026-11-28",
+  "id": "3947",
+  "title": "Maximum Number of Items From Sale II",
   "difficulty": "Medium",
-  "link": "https://leetcode.com/problems/maximum-number-of-items-from-sale-i/",
+  "link": "https://leetcode.com/problems/maximum-number-of-items-from-sale-ii/",
   "topics": [
     "Array",
-    "Dynamic Programming",
-    "Greedy"
+    "Greedy",
+    "Sorting",
+    "Heap (Priority Queue)"
   ],
   "blocks": [
     {
@@ -16,7 +17,7 @@
     },
     {
       "t": "text",
-      "v": "There are unlimited copies of each item available for purchase.You may buy any number of copies of any items such that the total cost of the purchased copies is at most budget."
+      "v": "There are unlimited copies of each item available for purchase. You may buy any number of copies of any items such that the total cost of the purchased copies is at most budget."
     },
     {
       "t": "text",
@@ -24,11 +25,15 @@
     },
     {
       "t": "text",
-      "v": "• For each item i that you bought at least one copy of, you receive one free copy of every item j such that j != i and factori divides factorj."
+      "v": "• Each purchased copy of item i can give you at most one free copy of another item j."
     },
     {
       "t": "text",
-      "v": "• Buying multiple copies of the same item i does not give additional free copies through item i."
+      "v": "• The free item must satisfy i != j and factori divides factorj."
+    },
+    {
+      "t": "text",
+      "v": "• For each ordered pair (i, j), you can receive a free copy of item j from purchases of item i at most once, regardless of how many copies of item i you buy."
     },
     {
       "t": "text",
@@ -44,11 +49,11 @@
     },
     {
       "t": "text",
-      "v": "Input: items = [[6,2],[2,6],[3,4]], budget = 9"
+      "v": "Input: items = [[1,6],[2,4],[3,5]], budget = 19"
     },
     {
       "t": "text",
-      "v": "Output: 4"
+      "v": "Output: 5"
     },
     {
       "t": "text",
@@ -56,15 +61,19 @@
     },
     {
       "t": "text",
-      "v": "• You can buy 2 copies of item 0 and 1 copy of item 2 for a total cost of 2 * 2 + 4 = 8, which is not greater than budget = 9."
+      "v": "• You can buy 2 copies of item 0 and 1 copy of item 1 for a total cost of 2 * 6 + 4 = 16, which is not greater than budget = 19."
     },
     {
       "t": "text",
-      "v": "• Buying item 2 gives 1 free copy of item 0, because factor2 = 3 divides factor0 = 6."
+      "v": "• One purchased copy of item 0 gives 1 free copy of item 1, because factor0 = 1 divides factor1 = 2."
     },
     {
       "t": "text",
-      "v": "• You leave with 3 purchased copies and 1 free copy, for a total of 4 item copies."
+      "v": "• The other purchased copy of item 0 gives 1 free copy of item 2, because factor0 = 1 divides factor2 = 3."
+    },
+    {
+      "t": "text",
+      "v": "• You leave with 3 purchased copies and 2 free copies, for a total of 5 item copies."
     },
     {
       "t": "text",
@@ -72,11 +81,11 @@
     },
     {
       "t": "text",
-      "v": "Input: items = [[2,4],[3,2],[4,1],[6,4],[12,4]], budget = 8"
+      "v": "Input: items = [[2,8],[1,10],[6,6],[4,12],[5,20],[5,17]], budget = 35"
     },
     {
       "t": "text",
-      "v": "Output: 10"
+      "v": "Output: 7"
     },
     {
       "t": "text",
@@ -84,23 +93,27 @@
     },
     {
       "t": "text",
-      "v": "• You can buy 1 copy of item 0, 1 copy of item 1, and 2 copies of item 2 for a total cost of 4 + 2 + 2 * 1 = 8."
+      "v": "• You can buy 2 copies of item 0, 1 copy of item 1, and 1 copy of item 2 for a total cost of 2 * 8 + 10 + 6 = 32, which is not greater than budget = 35."
     },
     {
       "t": "text",
-      "v": "• Buying item 0 gives 1 free copy of items 2, 3, and 4."
+      "v": "• One purchased copy of item 0 gives 1 free copy of item 2, because factor0 = 2 divides factor2 = 6."
     },
     {
       "t": "text",
-      "v": "• Buying item 1 gives 1 free copy of items 3 and 4."
+      "v": "• The other purchased copy of item 0 gives 1 free copy of item 3, because factor0 = 2 divides factor3 = 4."
     },
     {
       "t": "text",
-      "v": "• Buying item 2 gives 1 free copy of item 4."
+      "v": "• The purchased copy of item 1 gives 1 free copy of item 2, because factor1 = 1 divides factor2 = 6."
     },
     {
       "t": "text",
-      "v": "• Thus, you receive 6 free copies. You leave with 4 purchased copies and 6 free copies, for a total of 10 item copies."
+      "v": "• Buying item 2 gives no free copy, because factor2 = 6 does not divide the factor of any other item."
+    },
+    {
+      "t": "text",
+      "v": "• You leave with 4 purchased copies and 3 free copies, for a total of 7 item copies."
     },
     {
       "t": "text",
@@ -108,7 +121,7 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= items.length <= 1000"
+      "v": "• 1 <= items.length <= 10^5"
     },
     {
       "t": "text",
@@ -116,11 +129,15 @@
     },
     {
       "t": "text",
-      "v": "• 1 <= factori, pricei <= 1500"
+      "v": "• 1 <= factori <= items.length"
     },
     {
       "t": "text",
-      "v": "• 1 <= budget <= 1500"
+      "v": "• 1 <= pricei <= 10^9"
+    },
+    {
+      "t": "text",
+      "v": "• 1 <= budget <= 10^9"
     }
   ]
 }
